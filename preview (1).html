@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#efe7dc">
+<title>Reply 1988 — QR Order Showcase Pro</title>
+<style>
+:root{--bg:#efe7dc;--paper:#fbf8f3;--card:#fffdf9;--ink:#302a25;--muted:#786f66;--line:#ddd3c6;--brown:#5d4637;--accent:#b16f4e;--sage:#78866f;--danger:#9c5048;--shadow:0 18px 55px rgba(58,42,30,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:50;background:rgba(239,231,220,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(93,70,55,.12)}
+.topin{max-width:1180px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px}.brand{display:flex;align-items:center;gap:10px;font:18px Georgia,serif}.logo{width:36px;height:36px;border-radius:50%;background:var(--brown);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700}
+.switch{display:flex;gap:5px;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.6)}.switch button{border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px}.switch button.active{background:var(--brown);color:#fff}.lang{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 10px}
+.wrap,.panel{max-width:1180px;margin:auto;padding:24px 18px 70px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.heroMain,.heroSide{min-height:430px;border-radius:32px;overflow:hidden;box-shadow:var(--shadow)}.heroMain{position:relative;background:linear-gradient(135deg,#705543,#c1aa92 55%,#e7d9c6)}.heroMain:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(40,26,18,.62),transparent 60%)}
+.heroCopy{position:absolute;z-index:2;left:32px;right:32px;bottom:32px;color:#fff}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:.78}.hero h1{font:500 clamp(48px,8vw,82px)/.9 Georgia,serif;margin:10px 0}.hero p{max-width:520px;color:rgba(255,255,255,.88);line-height:1.55}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 14px;border-radius:999px}.btn.primary{background:var(--brown);border-color:var(--brown);color:#fff}.btn.accent{background:var(--accent);border-color:var(--accent);color:#fff}.btn.danger{background:#fff2ef;color:var(--danger);border-color:#e4c1bb}
+.heroSide{background:var(--paper);padding:25px;display:flex;flex-direction:column;justify-content:space-between}.heroSide h2{font:500 34px/1.05 Georgia,serif;margin:8px 0}.muted{color:var(--muted)}
+.photo{height:230px;border-radius:22px;background:linear-gradient(135deg,#cbb9a5,#987a61 60%,#5b4335);display:grid;place-items:center;color:rgba(255,255,255,.8);font:24px Georgia,serif;text-align:center;padding:20px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.metaBox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px}.metaBox small{display:block;color:var(--muted)}.metaBox strong{display:block;margin-top:4px}
+.section{margin-top:32px}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:14px}.sectionHead h2{font:500 34px/1 Georgia,serif;margin:5px 0}
+.chips{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.chip{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--muted);border-radius:999px;padding:9px 13px}.chip.active{background:var(--brown);color:#fff;border-color:var(--brown)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid rgba(93,70,55,.1);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(71,53,40,.06);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(71,53,40,.1)}
+.pic{aspect-ratio:1.08;background:linear-gradient(135deg,#d7c1aa,#a18167 58%,#604839);display:grid;place-items:center;text-align:center;color:rgba(255,255,255,.8);font:18px Georgia,serif;padding:18px;position:relative}.badge{position:absolute;left:10px;top:10px;background:rgba(255,253,249,.9);border:1px solid rgba(255,255,255,.6);color:var(--brown);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;border-radius:999px}
+.body{padding:14px}.title{font-weight:800;line-height:1.25}.desc{font-size:12px;color:var(--muted);line-height:1.45;min-height:36px;margin-top:6px}.foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px}.price{font-weight:800;color:var(--brown)}.plus{width:36px;height:36px;border:0;border-radius:50%;background:var(--brown);color:#fff;font-size:20px}
+.search{border:1px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;min-width:220px}.infoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.info{padding:19px;border:1px solid var(--line);border-radius:21px;background:rgba(255,255,255,.62)}.info strong{display:block;font:500 20px Georgia,serif;margin-bottom:5px}.info span{font-size:13px;color:var(--muted);line-height:1.5}
+.floating{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:40;background:var(--brown);color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 16px 35px rgba(49,36,27,.28);display:none;gap:10px;align-items:center}.floating.show{display:flex}.count{width:24px;height:24px;border-radius:50%;background:#fff;color:var(--brown);display:grid;place-items:center;font-size:12px;font-weight:800}
+.drawer,.modal{position:fixed;inset:0;z-index:70;background:rgba(24,18,14,.45);backdrop-filter:blur(5px);display:none}.drawer.open{display:flex;justify-content:flex-end}.modal.open{display:flex;align-items:center;justify-content:center;padding:18px}
+.drawerPanel{width:min(520px,100%);height:100%;overflow:auto;background:var(--paper);padding:22px;box-shadow:-20px 0 60px rgba(0,0,0,.18)}.modalCard{width:min(760px,100%);max-height:92vh;overflow:auto;background:var(--paper);border-radius:28px;padding:22px}
+.drawerHead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.drawerHead h2{font:500 30px Georgia,serif;margin:0}.close{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff}
+.cartRow{display:grid;grid-template-columns:1fr auto;gap:10px;padding:15px 0;border-bottom:1px solid var(--line)}.qty{display:flex;gap:8px;align-items:center}.qty button{width:30px;height:30px;border:1px solid var(--line);background:#fff;border-radius:50%}
+.form{display:grid;gap:11px;margin-top:18px}.field{display:grid;gap:6px}.field label{font-size:12px;color:var(--muted)}.field input,.field textarea,.field select{width:100%;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;outline:none}.field textarea{min-height:80px;resize:vertical}
+.cashBox{padding:13px;border:1px dashed #c7b29a;border-radius:18px;background:#f7efe4}.total{display:flex;justify-content:space-between;font-weight:800;font-size:18px}.submit{width:100%;border:0;border-radius:15px;background:var(--brown);color:#fff;padding:14px;font-weight:800}
+.detail{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}.detailImg{min-height:330px;border-radius:23px;background:linear-gradient(135deg,#d9c3ab,#9d7c61 58%,#5a4334);display:grid;place-items:center;color:#fff;font:26px Georgia,serif;text-align:center;padding:24px}.options{display:flex;gap:7px;flex-wrap:wrap}.option{padding:9px 12px;border:1px solid var(--line);background:#fff;border-radius:999px}.option.active{background:var(--brown);border-color:var(--brown);color:#fff}
+.panelHeader{display:flex;justify-content:space-between;gap:15px;align-items:start;flex-wrap:wrap}.panelHeader h1{font:500 50px/.95 Georgia,serif;margin:6px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:17px}.stat small{color:var(--muted)}.stat strong{display:block;font-size:27px;margin-top:6px}
+.cols{display:grid;grid-template-columns:1.35fr .65fr;gap:17px;margin-top:18px}.panelCard{background:var(--paper);border:1px solid var(--line);border-radius:25px;padding:19px}.orders{display:grid;gap:11px;margin-top:13px}.order{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px}.orderTop{display:flex;justify-content:space-between;gap:10px}.status{font-size:11px;font-weight:800;padding:7px 9px;border-radius:999px;background:#efe5da;color:var(--brown)}.items{font-size:13px;color:var(--muted);line-height:1.55;margin:10px 0}.orderActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.orderActions button{border:1px solid var(--line);background:#fff;padding:8px 11px;border-radius:11px}.orderActions .primary{background:var(--brown);border-color:var(--brown);color:#fff}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.tabs button{border:1px solid var(--line);background:var(--paper);padding:9px 12px;border-radius:999px}.tabs button.active{background:var(--brown);color:#fff;border-color:var(--brown)}
+.adminGrid{display:grid;grid-template-columns:220px 1fr;gap:17px;margin-top:18px}.adminNav{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:9px;height:max-content}.adminNav button{width:100%;border:0;background:transparent;text-align:left;padding:11px;border-radius:12px;color:var(--muted)}.adminNav button.active{background:#ebe0d4;color:var(--brown);font-weight:800}
+.row{display:grid;grid-template-columns:54px 1.3fr .7fr .4fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.thumb{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#d7c1aa,#8f6d56)}.row small{display:block;color:var(--muted);margin-top:3px}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:11px 7px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted)}
+.analytics{display:grid;grid-template-columns:1fr 1fr;gap:15px}.bars{height:220px;display:flex;align-items:end;gap:8px;padding-top:18px}.bar{flex:1;background:linear-gradient(to top,#7b5d49,#cbb29a);border-radius:9px 9px 4px 4px;min-height:8px;position:relative}.bar span{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted)}
+.empty{border:1px dashed var(--line);border-radius:18px;padding:35px;text-align:center;color:var(--muted)}.toast{position:fixed;right:17px;bottom:17px;z-index:120;background:#2d2823;color:#fff;padding:12px 15px;border-radius:13px;display:none;box-shadow:var(--shadow)}.toast.show{display:block}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.cols,.adminGrid{grid-template-columns:1fr}.adminNav{display:flex;overflow:auto}.adminNav button{white-space:nowrap;width:auto}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.topin,.wrap,.panel{padding-left:13px;padding-right:13px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.infoGrid{grid-template-columns:1fr}.analytics{grid-template-columns:1fr}.detail{grid-template-columns:1fr}.heroMain,.heroSide{border-radius:25px}.heroMain{min-height:500px}.heroSide{min-height:500px}.sectionHead{align-items:start;flex-direction:column}.search{width:100%;min-width:0}.stats{grid-template-columns:1fr 1fr}.row{grid-template-columns:48px 1fr auto}.row .hide{display:none}.panelHeader h1{font-size:40px}}
+
+/* ===== POLISHED SHOWCASE OVERRIDES ===== */
+:root{
+  --bg:#e9e0d4;
+  --paper:rgba(255,252,247,.94);
+  --card:#fffdf9;
+  --ink:#2a2521;
+  --muted:#756b61;
+  --line:rgba(93,70,55,.16);
+  --brown:#513b2f;
+  --brown-2:#6f5342;
+  --accent:#b56f4c;
+  --sage:#71816b;
+  --cream:#f7f0e6;
+  --shadow:0 24px 70px rgba(60,43,31,.13);
+}
+body{
+  background:
+    radial-gradient(circle at 8% 0%,rgba(255,255,255,.65),transparent 28%),
+    radial-gradient(circle at 94% 12%,rgba(183,145,111,.16),transparent 24%),
+    linear-gradient(180deg,#eee6dc 0%,#e9e0d4 100%);
+}
+.top{
+  background:rgba(245,239,231,.82);
+  border-bottom:1px solid rgba(93,70,55,.12);
+  box-shadow:0 8px 28px rgba(67,48,35,.05);
+}
+.topin{padding:10px 18px}
+.brand{font-weight:600;letter-spacing:.02em}
+.logo{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),0 8px 20px rgba(63,43,31,.18);
+}
+.wrap,.panel{padding-top:30px}
+.hero{gap:22px}
+.heroMain{
+  min-height:520px;
+  background:
+    radial-gradient(circle at 76% 17%,rgba(255,244,224,.38),transparent 17%),
+    radial-gradient(circle at 18% 78%,rgba(255,255,255,.14),transparent 23%),
+    linear-gradient(135deg,#5b4436 0%,#92735b 44%,#d6c2a9 100%);
+}
+.heroMain:before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:24px;
+  z-index:1;
+  pointer-events:none;
+}
+.heroCopy{left:42px;right:42px;bottom:42px}
+.hero h1{letter-spacing:-.04em;text-shadow:0 8px 30px rgba(28,18,12,.24)}
+.hero p{font-size:15px;max-width:560px}
+.heroSide{
+  min-height:520px;
+  border:1px solid rgba(93,70,55,.09);
+  box-shadow:var(--shadow);
+}
+.heroSide h2{letter-spacing:-.03em}
+.photo{
+  height:255px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 24% 28%,rgba(255,255,255,.36),transparent 16%),
+    radial-gradient(circle at 78% 22%,rgba(255,238,207,.34),transparent 18%),
+    linear-gradient(135deg,#cdb9a1,#9a765d 54%,#594236);
+}
+.photo:before{
+  content:"";
+  position:absolute;
+  width:190px;height:190px;
+  border-radius:50%;
+  left:50%;top:54%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%,#f8eee0 0 20%,#c7a98c 22% 39%,#7c5d49 41% 60%,rgba(55,38,27,.85) 62% 100%);
+  box-shadow:0 24px 50px rgba(41,27,18,.28);
+}
+.photo:after{
+  content:"";
+  position:absolute;
+  width:120px;height:54px;
+  border-radius:0 0 70px 70px;
+  left:50%;top:52%;
+  transform:translate(-50%,-50%);
+  border:7px solid rgba(255,249,238,.72);
+  border-top:0;
+  opacity:.8;
+}
+.photo{font-size:0}
+.metaBox{background:rgba(255,255,255,.72);backdrop-filter:blur(8px)}
+.section{margin-top:44px}
+.sectionHead h2{letter-spacing:-.03em}
+.chips{padding:4px 0 12px}
+.chip{background:rgba(255,255,255,.6);backdrop-filter:blur(8px)}
+.grid{gap:16px}
+.card{
+  border-radius:25px;
+  border-color:rgba(93,70,55,.12);
+  box-shadow:0 12px 34px rgba(71,53,40,.06);
+}
+.card:hover{transform:translateY(-5px) scale(1.005)}
+.pic{
+  min-height:178px;
+  background:
+    radial-gradient(circle at 75% 24%,rgba(255,255,255,.32),transparent 15%),
+    linear-gradient(135deg,#dcc7b0,#aa8870 56%,#694e3d);
+}
+.pic:before{
+  content:"";
+  position:absolute;
+  width:82px;height:82px;
+  border-radius:50%;
+  left:50%;top:52%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 30% 26%,#fff8ec 0 16%,#b88d6b 18% 42%,#5a4030 45% 68%,#2f2119 70% 100%);
+  opacity:.8;
+  box-shadow:0 16px 30px rgba(45,29,20,.22);
+}
+.pic small,.pic br{position:relative;z-index:2}
+.pic small{display:none}
+.body{padding:17px}
+.title{font-size:15px}
+.desc{font-size:12px;line-height:1.5}
+.plus{
+  box-shadow:0 7px 17px rgba(72,49,35,.18);
+  transition:.18s ease;
+}
+.plus:hover{transform:scale(1.08)}
+.infoGrid{gap:14px}
+.info{
+  box-shadow:0 9px 30px rgba(71,53,40,.04);
+  backdrop-filter:blur(8px);
+}
+.floating{
+  padding:13px 18px;
+  min-width:220px;
+  justify-content:center;
+}
+.drawerPanel,.modalCard{
+  border-left:1px solid rgba(93,70,55,.08);
+  box-shadow:-30px 0 90px rgba(0,0,0,.16);
+}
+.modalCard{border:1px solid rgba(93,70,55,.10);box-shadow:0 30px 100px rgba(32,23,16,.24)}
+.detailImg{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.28),transparent 15%),
+    linear-gradient(135deg,#dbc5ad,#9d7a60 58%,#574033);
+}
+.detailImg:before{
+  content:"";
+  position:absolute;
+  width:190px;height:190px;border-radius:50%;
+  left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 32% 24%,#fff8ed 0 18%,#c09b78 20% 42%,#71513e 44% 66%,#312219 68% 100%);
+  opacity:.85;
+}
+.detailImg{font-size:0}
+.detailImg:after{
+  content:"Café 1988";
+  position:absolute;bottom:18px;left:18px;
+  font:600 11px Inter,sans-serif;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+.form input:focus,.form textarea:focus,.form select:focus,.search:focus{
+  border-color:rgba(93,70,55,.45);
+  box-shadow:0 0 0 4px rgba(181,111,76,.12);
+}
+.submit,.btn.primary{
+  box-shadow:0 8px 20px rgba(72,49,35,.14);
+}
+.submit:hover,.btn.primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.panelHeader h1{letter-spacing:-.04em}
+.stat{
+  box-shadow:0 9px 25px rgba(71,53,40,.05);
+}
+.panelCard{
+  box-shadow:0 10px 32px rgba(71,53,40,.05);
+}
+.order{
+  transition:.18s ease;
+}
+.order:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(71,53,40,.08)}
+.status{border:1px solid rgba(93,70,55,.08)}
+.row{transition:.15s ease}
+.row:hover{background:rgba(255,255,255,.4)}
+.row .btn,.adminNav button,.tabs button,.orderActions button{transition:.16s ease}
+.row .btn:hover,.adminNav button:hover,.tabs button:hover,.orderActions button:hover{transform:translateY(-1px)}
+.toast{
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 20px 50px rgba(20,14,10,.22);
+}
+@media(max-width:650px){
+  .heroCopy{left:26px;right:26px;bottom:26px}
+  .hero h1{font-size:56px}
+  .grid{gap:11px}
+  .card{border-radius:19px}
+  .pic{min-height:145px}
+  .body{padding:13px}
+}
+
+
+/* ===== BRAND SITE LAYER ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+:root{--cream:#FFF8F0;--brown:#8B5E3C;--dark:#3D2B1F;--orange:#E8956D;--gold:#D4A574;--lgold:#F0DFC8;--txt:#2C1810;--mut:#6B5344}
+body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--cream);color:var(--txt);overflow-x:hidden}h1,h2,h3,.brand,.panelHeader h1{font-family:'Playfair Display',Georgia,serif}
+.brand-nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;transition:.3s}.brand-nav.scrolled{background:rgba(255,248,240,.96);backdrop-filter:blur(12px);box-shadow:0 2px 24px rgba(61,43,31,.12);padding:12px 28px}
+.brand-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.35rem;color:var(--dark);text-decoration:none}.brand-logo span{color:var(--orange)}
+.brand-nav .nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0}.brand-nav .nav-links a{text-decoration:none;color:var(--txt);font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:.2s}.brand-nav .nav-links a:hover{color:var(--orange)}
+.brand-nav .nav-right{display:flex;align-items:center;gap:9px}.brand-nav .langs{display:flex;gap:5px}.brand-nav .lang-switch{padding:5px 10px;border:1px solid var(--brown);background:transparent;border-radius:20px;font-size:.7rem;font-weight:700;cursor:pointer;color:var(--brown)}.brand-nav .lang-switch.on{background:var(--brown);color:#fff}
+.brand-nav .demo-mode,.brand-nav .mobile-menu{padding:7px 10px;border:1px solid rgba(139,94,60,.35);background:rgba(255,255,255,.55);border-radius:999px;color:var(--brown);font-size:10px;font-weight:800;cursor:pointer}.brand-nav .mobile-menu{display:none}
+.brand-nav .cart-btn{position:relative;width:44px;height:44px;border:none;border-radius:50%;background:var(--brown);color:#fff;font-size:1.05rem;cursor:pointer;transition:.2s}.brand-nav .cart-btn:hover{transform:scale(1.08)}.brand-nav .cart-count{position:absolute;top:-5px;right:-5px;min-width:20px;height:20px;border-radius:10px;background:var(--orange);color:#fff;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px}
+.brand-mobile-links{display:none;position:fixed;top:70px;left:12px;right:12px;z-index:899;background:rgba(255,248,240,.98);backdrop-filter:blur(12px);border:1px solid rgba(139,94,60,.15);border-radius:20px;padding:12px;box-shadow:0 20px 50px rgba(61,43,31,.15)}.brand-mobile-links.on{display:grid}.brand-mobile-links a{padding:12px;border-radius:12px;color:var(--dark);text-decoration:none;font-weight:700}.brand-mobile-links a:hover{background:var(--lgold)}
+.brand-hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:120px 24px 80px}.brand-hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,24,16,.45),rgba(44,24,16,.8)),url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1800&q=80') center/cover}.brand-hero-bg:after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 28%,rgba(255,235,210,.15),transparent 28%),linear-gradient(180deg,transparent 40%,rgba(44,24,16,.3))}.brand-hero-inner{position:relative;z-index:2;max-width:840px}.brand-badge{display:inline-block;padding:8px 20px;border:1px solid rgba(255,255,255,.4);border-radius:30px;font-size:.76rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;backdrop-filter:blur(5px)}.brand-hero h1{font-size:clamp(3.4rem,9vw,7rem);font-weight:900;line-height:1.02;margin:0 0 18px;letter-spacing:-.04em}.brand-hero h1 span{color:var(--orange)}.brand-hero p{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.85);margin:0 auto 30px;max-width:680px}.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.hero-btn{padding:14px 32px;border-radius:50px;font-weight:700;letter-spacing:.3px;text-decoration:none;cursor:pointer;transition:.25s;border:none;font-size:.9rem}.hero-btn.primary{background:var(--orange);color:#fff;box-shadow:0 10px 30px rgba(232,149,109,.35)}.hero-btn.primary:hover{transform:translateY(-3px);background:#d97f55}.hero-btn.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.58)}.hero-btn.outline:hover{background:#fff;color:var(--dark)}.hero-open{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:9px 20px;background:rgba(255,255,255,.12);border-radius:30px;font-size:.82rem;backdrop-filter:blur(4px)}.hero-open .dot{width:8px;height:8px;border-radius:50%;background:#4CAF50;animation:brandPulse 2s infinite}@keyframes brandPulse{50%{opacity:.35}}
+.brand-section{padding:92px 24px}.brand-wrap{max-width:1150px;margin:0 auto}.section-head-brand{text-align:center;margin-bottom:50px}.section-head-brand .sub{color:var(--orange);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}.section-head-brand h2{font-size:clamp(2rem,5vw,2.9rem);color:var(--dark);margin:0;letter-spacing:-.025em}.section-head-brand p{max-width:680px;margin:14px auto 0;color:var(--mut);line-height:1.75}
+.about-brand{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.about-brand-img{height:500px;border-radius:22px;overflow:hidden;box-shadow:22px 22px 0 var(--lgold);position:relative}.about-brand-img img{width:100%;height:100%;object-fit:cover}.about-brand-img:after{content:'REPLY 1988';position:absolute;left:20px;bottom:18px;color:rgba(255,255,255,.82);font-size:11px;font-weight:700;letter-spacing:.22em}.about-brand-text p{color:var(--mut);line-height:1.9;margin-bottom:16px}.brand-feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}.brand-feat{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid rgba(212,165,116,.25);border-radius:14px;padding:13px}.brand-feat i{font-style:normal;width:42px;height:42px;flex:none;background:var(--lgold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.08rem}.brand-feat b{font-size:.82rem}
+.brand-menu-section{background:linear-gradient(180deg,var(--cream),#FDF3E7)}.brand-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px}.brand-tab{padding:10px 22px;border:2px solid var(--lgold);background:#fff;border-radius:30px;cursor:pointer;font-weight:700;font-size:.86rem;transition:.2s;color:var(--txt)}.brand-tab.on,.brand-tab:hover{background:var(--brown);border-color:var(--brown);color:#fff}.brand-menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}.brand-menu-card{background:#fff;border-radius:18px;overflow:hidden;border:1px solid rgba(212,165,116,.2);transition:.25s;display:flex;flex-direction:column}.brand-menu-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(61,43,31,.12)}.brand-menu-img{height:190px;position:relative;overflow:hidden;background:#dbc3ab}.brand-menu-img img{width:100%;height:100%;object-fit:cover;transition:.5s}.brand-menu-card:hover .brand-menu-img img{transform:scale(1.045)}.brand-menu-tag{position:absolute;top:12px;left:12px;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;padding:5px 12px;border-radius:20px;letter-spacing:.4px}.brand-menu-body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}.brand-menu-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.brand-menu-top h3{font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;margin:0}.brand-price{font-family:'Playfair Display',serif;font-weight:700;color:var(--orange);font-size:1.08rem;white-space:nowrap}.brand-menu-body p{color:var(--mut);font-size:.84rem;line-height:1.6;flex:1;margin:0}.brand-menu-actions{display:flex;gap:8px;align-items:center;margin-top:7px}.brand-add{flex:1;padding:11px;border:none;border-radius:12px;background:var(--dark);color:#fff;font-weight:700;font-size:.84rem;cursor:pointer;transition:.2s}.brand-add:hover{background:var(--orange)}.brand-view{width:42px;height:42px;border:1px solid rgba(139,94,60,.22);border-radius:12px;background:#fff;color:var(--brown);cursor:pointer;transition:.2s}.brand-view:hover{background:var(--lgold)}
+.brand-gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:16px}.brand-gallery-item{border-radius:16px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 10px 28px rgba(61,43,31,.07)}.brand-gallery-item:first-child{grid-column:span 2;grid-row:span 2}.brand-gallery-item img{transition:.5s}.brand-gallery-item:hover img{transform:scale(1.06)}.brand-gallery-item:after{content:'View';position:absolute;right:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(44,24,16,.55);color:#fff;font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:.2s}.brand-gallery-item:hover:after{opacity:1}
+.brand-review-section{background:var(--lgold)}.brand-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.brand-review-card{background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 30px rgba(61,43,31,.08)}.brand-stars{color:#F5A623;margin-bottom:11px;letter-spacing:2px}.brand-review-card p{color:var(--mut);font-size:.9rem;line-height:1.7;margin:0 0 18px}.brand-review-user{display:flex;align-items:center;gap:12px}.brand-review-avatar{width:44px;height:44px;border-radius:50%;background:var(--brown);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}.brand-review-user b{font-size:.84rem;display:block}.brand-review-user small{color:var(--mut)}
+.brand-qr{background:var(--dark);color:#fff;text-align:center}.brand-qr-layout{display:grid;grid-template-columns:220px 1fr;gap:28px;max-width:700px;margin:0 auto;align-items:center;text-align:left}.brand-qr-box{width:210px;height:210px;background:#fff;border-radius:16px;padding:12px;margin:0 auto}.brand-qr-box img{width:100%;height:100%;object-fit:contain}.brand-qr-copy strong{display:block;font:600 28px 'Playfair Display',serif;margin-bottom:8px}.brand-qr-copy p{color:rgba(255,255,255,.7);line-height:1.65;margin:0 0 14px}
+.brand-contact{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}.contact-item{display:flex;gap:14px;margin-bottom:20px}.contact-icon{width:48px;height:48px;flex:none;background:var(--lgold);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}.contact-item h4{font-size:.76rem;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin:0 0 4px}.contact-item p{color:var(--mut);line-height:1.6;margin:0}.contact-item a{color:var(--brown);font-weight:700;text-decoration:none}.brand-map{height:420px;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(61,43,31,.15)}.brand-map iframe{width:100%;height:100%;border:0}.brand-footer{background:#241209;color:rgba(255,255,255,.55);text-align:center;padding:34px 20px;font-size:.84rem}.brand-footer b{color:var(--gold)}
+.brand-reveal{opacity:0;transform:translateY(34px);transition:.8s}.brand-reveal.on{opacity:1;transform:none}
+@media(max-width:920px){.brand-nav .nav-links{display:none}.brand-nav .demo-mode{display:none}.brand-nav .mobile-menu{display:block}.about-brand,.brand-contact{grid-template-columns:1fr}.brand-review-grid{grid-template-columns:1fr}.brand-gallery{grid-template-columns:repeat(2,1fr)}.brand-gallery-item:first-child{grid-column:span 2}.brand-qr-layout{grid-template-columns:1fr;text-align:center}}
+@media(max-width:560px){.brand-nav{padding:12px 14px}.brand-nav.scrolled{padding:10px 14px}.brand-nav .langs{display:none}.brand-hero h1{font-size:58px}.about-brand-img{height:340px}.brand-feats{grid-template-columns:1fr}.brand-gallery{grid-template-columns:1fr}.brand-gallery-item:first-child{grid-column:span 1}.brand-menu-grid{grid-template-columns:1fr}.brand-qr-box{width:190px;height:190px}}
+
+
+/* ===== CLIENT ORDER CABINET — ADDITIVE MODULE ===== */
+.order-cabinet-section{background:linear-gradient(180deg,#fdf3e7 0%,#fff8f0 100%)}
+.order-cabinet-shell{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start}
+.order-cabinet-main,.order-cabinet-side{background:#fff;border:1px solid rgba(212,165,116,.22);border-radius:22px;box-shadow:0 14px 40px rgba(61,43,31,.07);padding:24px}
+.order-cabinet-main{min-height:320px}
+.order-cabinet-side{position:sticky;top:92px}
+.oc-kicker{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:800}
+.oc-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin:8px 0 4px}
+.oc-title{font:700 2rem/1.05 'Playfair Display',Georgia,serif;color:var(--dark);margin:0}
+.oc-sub{color:var(--mut);font-size:.86rem;line-height:1.6}
+.oc-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:var(--lgold);color:var(--brown);font-size:.72rem;font-weight:800;white-space:nowrap}
+.oc-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 0 5px rgba(76,175,80,.1);animation:brandPulse 2s infinite}
+.oc-progress{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:26px 0 20px}
+.oc-step{position:relative;text-align:center;color:#a18c7d;font-size:.7rem;font-weight:700}
+.oc-step:before{content:'';display:block;width:34px;height:34px;border-radius:50%;margin:0 auto 8px;border:2px solid #dfcfbe;background:#fff;transition:.25s}
+.oc-step:after{content:'';position:absolute;height:2px;background:#e8dacb;left:calc(50% + 18px);right:calc(-50% + 18px);top:16px;z-index:0}
+.oc-step:last-child:after{display:none}
+.oc-step.active{color:var(--brown)}
+.oc-step.active:before{background:var(--brown);border-color:var(--brown);box-shadow:0 0 0 6px rgba(139,94,60,.10)}
+.oc-step.done:before{background:var(--orange);border-color:var(--orange)}
+.oc-step.done:after{background:var(--orange)}
+.oc-step span{position:relative;z-index:1}
+.oc-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.oc-detail-box{padding:14px;border-radius:16px;background:var(--cream);border:1px solid rgba(212,165,116,.18)}
+.oc-detail-box small{display:block;color:var(--mut);font-size:.7rem;margin-bottom:5px}
+.oc-detail-box strong{display:block;color:var(--dark);font-size:.94rem}
+.oc-items{margin-top:18px;padding-top:18px;border-top:1px solid #eee0d2}
+.oc-item{display:flex;justify-content:space-between;gap:14px;padding:9px 0;font-size:.84rem}
+.oc-item span:first-child{color:var(--mut)}
+.oc-item span:last-child{font-weight:800;color:var(--dark)}
+.oc-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.oc-btn{padding:11px 15px;border-radius:12px;border:1px solid rgba(139,94,60,.18);background:#fff;color:var(--brown);font-weight:800;cursor:pointer;transition:.2s}
+.oc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(61,43,31,.08)}
+.oc-btn.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.oc-btn.soft{background:var(--lgold);border-color:var(--lgold)}
+.oc-empty{display:flex;min-height:270px;align-items:center;justify-content:center;text-align:center;padding:30px}
+.oc-empty-inner{max-width:420px}
+.oc-empty-icon{font-size:3rem;margin-bottom:12px}
+.oc-empty h3{font:700 1.7rem/1.1 'Playfair Display',Georgia,serif;color:var(--dark);margin:0 0 8px}
+.oc-empty p{color:var(--mut);line-height:1.7;font-size:.88rem;margin:0}
+.oc-history-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.oc-history-head h3{font:700 1.35rem 'Playfair Display',Georgia,serif;color:var(--dark);margin:0}
+.oc-history-count{font-size:.72rem;color:var(--mut);font-weight:700}
+.oc-history{display:grid;gap:10px;max-height:420px;overflow:auto;padding-right:4px}
+.oc-history-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px;border:1px solid rgba(212,165,116,.2);border-radius:15px;background:#fffaf4}
+.oc-history-row strong{font-size:.84rem;color:var(--dark)}
+.oc-history-row small{display:block;color:var(--mut);margin-top:4px}
+.oc-history-actions{display:flex;gap:6px;align-items:center}
+.oc-mini-btn{border:1px solid rgba(139,94,60,.18);background:#fff;border-radius:9px;padding:7px 9px;color:var(--brown);font-size:.72rem;font-weight:800;cursor:pointer}
+.oc-mini-btn:hover{background:var(--lgold)}
+.oc-summary{display:grid;gap:10px}
+.oc-summary-card{padding:16px;border-radius:17px;background:linear-gradient(135deg,#fffaf4,#f6eadc);border:1px solid rgba(212,165,116,.18)}
+.oc-summary-card strong{display:block;font:700 1.55rem 'Playfair Display',Georgia,serif;color:var(--dark)}
+.oc-summary-card span{display:block;color:var(--mut);font-size:.78rem;margin-top:3px}
+.oc-status-note{margin-top:12px;padding:12px 13px;border-radius:13px;background:#f8f1e8;color:var(--mut);font-size:.78rem;line-height:1.6}
+@media(max-width:920px){.order-cabinet-shell{grid-template-columns:1fr}.order-cabinet-side{position:static}}
+@media(max-width:560px){.order-cabinet-main,.order-cabinet-side{padding:18px;border-radius:18px}.oc-title{font-size:1.65rem}.oc-title-row{flex-direction:column}.oc-progress{gap:4px}.oc-step{font-size:.62rem}.oc-detail-grid{grid-template-columns:1fr}.oc-history-row{grid-template-columns:1fr}.oc-history-actions{justify-content:flex-start}}
+
+
+/* Active-order UX: no sticky side panel. History stacks below the main order card. */
+.order-cabinet-shell{grid-template-columns:1fr!important}
+.order-cabinet-side{position:static!important;margin-top:0}
+@media(max-width:920px){.order-cabinet-shell{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div id="app"></div><div id="drawer" class="drawer"></div><div id="modal" class="modal"></div><div id="toast" class="toast"></div>
+<script>
+const MENU=[
+['espresso','Italian Coffee','Espresso – Café Ý','Cà phê Ý','Arabica, sugar',30000,['Hot','Cold']],['double','Italian Coffee','Double Espresso','Double Espresso','Arabica, sugar',40000,['Hot','Cold']],['capuchino','Italian Coffee','Capuchino','Capuchino','Arabica, fresh milk, sugar',45000,['Hot','Cold']],['latte','Italian Coffee','Latte','Latte','Arabica, fresh milk, sugar',45000,['Hot','Cold']],['americano','Italian Coffee','Americano','Americano','Arabica, water',30000],['egg','Italian Coffee','Cà phê trứng – Egg Coffee','Cà phê trứng – Egg Coffee','Arabica, cream, egg yolks',45000,null,1],['affogato','Italian Coffee','Cà phê Kem – Affogato','Cà phê Kem','Arabica, vanilla ice-cream',55000,null,1],['oat','Italian Coffee','Oat-Milk Latte','Oat-Milk Latte','Arabica, oat milk',50000,['Hot','Cold']],
+['milk','Vietnamese Coffee','Cà phê Sữa – Milk Coffee','Cà phê Sữa','Robusta, condensed milk',35000,['Hot','Cold']],['black','Vietnamese Coffee','Cà phê Đen – Black Coffee','Cà phê Đen','Robusta, sugar',25000,['Hot','Cold']],['bacxiu','Vietnamese Coffee','Bạc xỉu – Vietnamese Latte','Bạc xỉu','Robusta, fresh milk, condensed milk, coffee jelly',35000,['Hot','Cold'],1],['coco-viet','Vietnamese Coffee','Bạc xỉu dừa – Coco Viet Latte','Bạc xỉu dừa','Robusta, coconut milk, fresh milk, condensed milk',45000],['custard','Vietnamese Coffee','Bạc xỉu kem trứng nướng – Custard Viet Latte','Bạc xỉu kem trứng nướng','Robusta, fresh milk, condensed milk, egg cream',45000,null,1],['salty','Vietnamese Coffee','Cà Phê Muối – Salty Coffee','Cà Phê Muối','Robusta, condensed milk, salt-cream',35000,null,1],
+['matcha-latte','Matcha','Matcha Latte Fresh Milk / Oat milk','Matcha Latte','Premium Japanese Matcha, condensed milk',55000,['Hot','Cold']],['matcha-oreo','Matcha','Matcha Oreo','Matcha Oreo','Premium Japanese Matcha, condensed milk, Oreo',59000],['cococha','Matcha','Cococha – Matcha Nước Dừa','Cococha','Coconut, premium Japanese matcha',60000,null,1],['matcha-blended','Matcha','Matcha Đá Xay','Matcha Đá Xay','Premium Japanese Matcha, sugar, condensed milk, fresh milk',60000],
+['lotus','Tea','Trà Sen Milkfoam – Lotus Oolong Tea Macchiato','Trà Sen Milkfoam','Lotus seed, lotus oolong tea, sugar, macchiato, water chestnut jelly',45000],['peach','Tea','Trà Đào Cam Sả – Lemongrass Peach Tea','Trà Đào Cam Sả','Peach tea, peach, lemon, sugar, lemongrass',45000,null,1],['apricot','Tea','Trà Mơ Xí Muội – Jasmine Tea, Apricot, Dried Prune','Trà Mơ Xí Muội','Jasmine, apricot, dried prune, sugar, lemon',45000,null,1],['tamarind','Tea','Trà Me Muối Ớt','Trà Me Muối Ớt','Oolong tea, tamarind, tamarind topping',45000,null,1],['butterfly','Tea','Trà Vải Hoa Đậu Biếc – Butterfly Pea Lychee Tea','Trà Vải Hoa Đậu Biếc','Jasmine, butterfly pea, lychee, sugar, lemon',45000,null,1],['lychee','Tea','Trà Thạch Vải Kem Mặn','Trà Thạch Vải Kem Mặn','Jasmine, lychee, macchiato, sugar, lychee jelly',45000],['mulberry','Tea','Trà Olong Dâu Tầm Hạt Đắc','Trà Olong Dâu Tầm Hạt Đắc','Oolong, mulberry, arenga, pinnatia, kumquat',42000,null,1],['soursop','Tea','Trà Mãng Cầu','Trà Mãng Cầu','Jasmine tea, soursop',40000,null,1],
+['custard-milktea','Milk-tea','Trà Sữa Kem Trứng Nướng','Trà Sữa Kem Trứng Nướng','Black tea, Thai red tea, black pearl, agar jelly',45000,null,1],['green-rice','Milk-tea','Trà Nhài Sữa Cốm Non','Trà Nhài Sữa Cốm Non','Jasmine milk tea, green rice',45000],['choco-flan','Milk-tea','Trà Sữa Socola Kem Flan','Trà Sữa Socola Kem Flan','Chocolate, black tea',45000],['jasmine-oolong','Milk-tea','Trà sữa Ô Long Nhài','Trà sữa Ô Long Nhài','Jasmine oolong, oolong pearl',40000,null,1],
+['yogurt','Non-Coffee','Sữa chua trái cây nhiệt đới','Sữa chua trái cây nhiệt đới','Tropical fruit, yogurt',45000],['sugarcane-coconut','Non-Coffee','Mía dừa','Mía dừa','Coconut, sugarcane',40000],['sugarcane-lemongrass','Non-Coffee','Mía tắc sả','Mía tắc sả','Sugarcane, lemongrass, kumquat',40000,null,1],['cocoa','Non-Coffee','Cacao Dừa Nóng – Hot Coconut Cocoa','Cacao Dừa Nóng','Cocoa, coconut, condensed milk, fresh milk',45000],['iced-choco','Non-Coffee','Iced Chocolate Macchiato','Iced Chocolate Macchiato','Chocolate, Robusta, sugar, condensed milk, fresh milk',45000,null,1],
+['mango','Smoothies','Xoài Milkfoam','Xoài Milkfoam','Mango, milkfoam, sugar, condensed milk',49000,null,1],['banana-mango','Smoothies','Chuối – Xoài – Chanh dây','Chuối – Xoài – Chanh dây','Banana, mango, passion fruit, sugar, condensed milk',49000,null,1],['dragon','Smoothies','Thanh Long Đỏ – Đào','Thanh Long Đỏ – Đào','Dragon fruit, peach, sugar',49000],['mango-orange','Smoothies','Xoài – Cam Vàng','Xoài – Cam Vàng','Mango, yellow orange, sugar, condensed milk',49000],
+['lemon-prune','Ice Blended','Chanh Đá Xay Xí Muội – Ice Blended Lemon & Dried Prune','Chanh Đá Xay Xí Muội','Lemon, dried prune, sugar',40000],['coconut-coffee','Ice Blended','Cà Phê Dừa – Coconut Coffee','Cà Phê Dừa','Robusta, coconut, condensed milk',45000,null,1],['choco-blended','Ice Blended','Socola Đá Xay','Socola Đá Xay','Chocolate, sugar, condensed milk, fresh milk',45000],['cheese-popcorn','Ice Blended','Cà Phê Phomai Bắp Rang','Cà Phê Phomai Bắp Rang','Robusta, cheese powder, condensed milk, fresh milk, popcorn',45000,null,1]
+].map(x=>({id:x[0],cat:x[1],en:x[2],vi:x[3],ru:x[2],desc:x[4],price:x[5],temps:x[6],hot:!!x[7]}));
+const TOPS=[['shot','Extra Shot Espresso',25000],['agar','Agar Jelly',7000],['black-pearl','Black Pearl',7000],['coffee-jelly','Coffee Jelly',7000],['oolong-pearl','Oolong Pearl',7000],['water-chestnut','Water Chestnut Jelly',7000],['oolong-3q','3Q Oolong Pearl',7000],['flan','Bánh Flan',7000],['lotus-seed','Lotus Seed',10000]].map(x=>({id:x[0],name:x[1],price:x[2]}));
+const CAT=['All',...new Set(MENU.map(x=>x.cat))];
+const SEED=[
+{id:'R88-1042',table:'12',name:'Anna',comment:'Less ice',payment:'cash',cash:500000,total:260000,status:'New',items:[['egg',2],['matcha-oreo',1]]},
+{id:'R88-1041',table:'07',name:'Minh',comment:'',payment:'cash',cash:200000,total:90000,status:'Preparing',items:[['cococha',1],['soursop',1]]},
+{id:'R88-1040',table:'03',name:'Liam',comment:'',payment:'counter',cash:0,total:135000,status:'Ready',items:[['latte',1],['matcha-latte',1],['black',1]]},
+{id:'R88-1039',table:'15',name:'Sofia',comment:'',payment:'cash',cash:300000,total:160000,status:'Paid',items:[['matcha-oreo',1],['coconut-coffee',1],['flan',1],['shot',1]]},
+{id:'R88-1038',table:'21',name:'Alex',comment:'',payment:'cash',cash:200000,total:139000,status:'Paid',items:[['bacxiu',2],['mango',1],['black-pearl',1]]}
+].map(o=>({...o,createdAt:Date.now()-Math.floor(Math.random()*60)*60000}));
+const stored=JSON.parse(localStorage.getItem('r88_orders')||'null');
+const S={view:'guest',lang:'en',table:new URLSearchParams(location.search).get('table')||'12',cat:'All',q:'',cart:JSON.parse(localStorage.getItem('r88_cart')||'[]'),orders:stored||SEED,tab:'menu',filter:'active'};
+if(!stored) S.orders.forEach(o=>o.source='demo-seed');
+const $=id=>document.getElementById(id),money=n=>`${Math.round(n/1000).toLocaleString()}K`,full=n=>`${n.toLocaleString()} ₫`,pname=p=>S.lang==='vi'?p.vi:S.lang==='ru'?p.ru:p.en;
+function toast(m){$('toast').textContent=m;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)}
+function save(){localStorage.setItem('r88_orders',JSON.stringify(S.orders));localStorage.setItem('r88_cart',JSON.stringify(S.cart))}
+function count(){return S.cart.reduce((a,x)=>a+x.qty,0)}
+function total(){return S.cart.reduce((a,x)=>a+x.price*x.qty,0)}
+function product(id){return MENU.find(x=>x.id===id)}
+function add(id,price=null,meta={}){const p=product(id);const key=id+'|'+(meta.temp||'')+'|'+(meta.top||'');const found=S.cart.find(x=>x.key===key);if(found)found.qty++;else S.cart.push({key,id,price:price||p.price,qty:1,temp:meta.temp||'',top:meta.top||''});save();render();toast('Added to order')}
+function qty(key,d){const x=S.cart.find(i=>i.key===key);if(!x)return;x.qty+=d;if(x.qty<=0)S.cart=S.cart.filter(i=>i.key!==key);save();render();openCart()}
+function openCart(){renderCart();$('drawer').classList.add('open')}
+function closeCart(){$('drawer').classList.remove('open')}
+function closeModal(){$('modal').classList.remove('open')}
+function openProduct(id){const p=product(id);let temp=p.temps?.[0]||'',top='';$('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><h2>${pname(p)}</h2><button class="close" onclick="closeModal()">×</button></div><div class="detail"><div class="detailImg">${p.vi}<br><small style="font:12px Inter">Photo placeholder</small></div><div><div class="eyebrow muted">${p.cat}</div><div style="font-size:26px;font-weight:800;color:var(--brown);margin:9px 0">${full(p.price)}</div><p class="muted" style="line-height:1.6">${p.desc}</p>${p.temps?`<div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Temperature</div><div class="options">${p.temps.map((x,i)=>`<button class="option ${i===0?'active':''}" data-v="${x}" onclick="pickOpt(this,'temp')">${x}</button>`).join('')}</div></div>`:''}<div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Extra topping</div><div class="options"><button class="option active" data-v="" onclick="pickOpt(this,'top')">None</button>${TOPS.slice(0,5).map(x=>`<button class="option" data-v="${x.id}" onclick="pickOpt(this,'top')">${x.name} +${money(x.price)}</button>`).join('')}</div></div><button class="submit" style="margin-top:22px" onclick="addModal('${id}')">Add to order</button></div></div></div>`;$('modal').classList.add('open');window.choice={temp,top}}
+function pickOpt(btn,type){btn.parentElement.querySelectorAll('.option').forEach(b=>b.classList.remove('active'));btn.classList.add('active');window.choice[type]=btn.dataset.v}
+function addModal(id){const t=TOPS.find(x=>x.id===window.choice.top);add(id,product(id).price+(t?.price||0),{temp:window.choice.temp,top:t?.id||''});closeModal();openCart()}
+function renderCart(){const items=S.cart.map(x=>{const p=product(x.id);const top=TOPS.find(t=>t.id===x.top);return `<div class="cartRow"><div><strong>${pname(p)}</strong><div class="muted" style="font-size:12px;margin-top:4px">${x.temp||''}${top?' · '+top.name:''}</div><div class="price" style="margin-top:6px">${full(x.price*x.qty)}</div></div><div class="qty"><button onclick="qty('${x.key}',-1)">−</button><strong>${x.qty}</strong><button onclick="qty('${x.key}',1)">+</button></div></div>`}).join('');$('drawer').innerHTML=`<div class="drawerPanel"><div class="drawerHead"><h2>Your order</h2><button class="close" onclick="closeCart()">×</button></div>${items||'<div class="empty">Your cart is empty.</div>'}${S.cart.length?`<div class="form"><div class="total"><span>Total</span><span>${full(total())}</span></div><div class="field"><label>Name (optional)</label><input id="cname"></div><div class="field"><label>Comment (optional)</label><textarea id="ccomment"></textarea></div><div class="field"><label>Payment</label><select id="pay" onchange="toggleCash()"><option value="cash">Cash</option><option value="counter">Pay at counter</option></select></div><div id="cashBox" class="cashBox"><div class="field"><label>I pay with</label><input id="cash" type="number" placeholder="500000" oninput="calcChange()"></div><div id="change" class="muted" style="font-weight:800;margin-top:7px">Change: —</div></div><button class="submit" onclick="placeOrder()">Place order · ${money(total())}</button></div>`:''}</div>`}
+function toggleCash(){const v=$('pay')?.value;if($('cashBox'))$('cashBox').style.display=v==='cash'?'block':'none'}
+function calcChange(){const v=Number($('cash')?.value||0);$('change').textContent='Change: '+(v?full(Math.max(0,v-total())):'—')}
+function placeOrder(){const pay=$('pay').value,cash=Number($('cash')?.value||0);if(pay==='cash'&&cash>0&&cash<total()){toast('Cash amount is below total');return}const o={id:'R88-'+String(Date.now()).slice(-6),table:S.table,name:($('cname').value||'').trim(),comment:($('ccomment').value||'').trim(),payment:pay,cash,total:total(),status:'New',items:S.cart.map(x=>({id:x.id,qty:x.qty,temp:x.temp,price:x.price})),createdAt:Date.now()};S.orders.unshift(o);S.cart=[];save();closeCart();render();toast('Order sent · '+o.id);setTimeout(()=>showOrder(o.id),250)}
+function showOrder(id){const o=S.orders.find(x=>x.id===id);if(!o)return;$('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><h2>Order ${o.id}</h2><button class="close" onclick="closeModal()">×</button></div><div class="muted">Table ${o.table}${o.name?' · '+o.name:''}</div><div style="margin-top:18px;display:grid;gap:9px">${['New','Preparing','Ready','Paid'].map((s,i)=>{const cur=['New','Preparing','Ready','Paid'].indexOf(o.status);return `<div style="padding:13px;border-radius:15px;background:${i<=cur?'#ebe0d4':'#f7f3ee'}"><strong>${i<=cur?'●':'○'} ${s}</strong></div>`}).join('')}</div><div class="info" style="margin-top:15px"><strong>${full(o.total)}</strong><span>${o.payment==='cash'?'Cash':'Pay at counter'}${o.cash?` · Change ${full(Math.max(0,o.cash-o.total))}`:''}</span></div></div>`;$('modal').classList.add('open')}
+function status(id,s){const o=S.orders.find(x=>x.id===id);if(!o)return;o.status=s;save();render();toast(id+' · '+s)}
+function card(p){return `<article class="card" onclick="openProduct('${p.id}')"><div class="pic">${p.vi}<br><small style="font:11px Inter">Photo placeholder</small>${p.hot?'<span class="badge">Best seller</span>':''}</div><div class="body"><div class="title">${pname(p)}</div><div class="desc">${p.desc}</div><div class="foot"><span class="price">${full(p.price)}</span><button class="plus" onclick="event.stopPropagation();add('${p.id}')">+</button></div></div></article>`}
+function guest(){const pop=MENU.filter(x=>x.hot).slice(0,6);const list=MENU.filter(p=>(S.cat==='All'||p.cat===S.cat)&&(!S.q||p.en.toLowerCase().includes(S.q.toLowerCase())||p.vi.toLowerCase().includes(S.q.toLowerCase())));return `<div class="wrap"><div class="hero"><section class="heroMain"><div class="heroCopy"><div class="eyebrow">Da Nang · Café · Table ${S.table}</div><h1>Reply 1988</h1><p>A warm little café for coffee, matcha, tea and slow moments. Scan, order at your table, and enjoy your time.</p><div class="actions"><button class="btn" onclick="document.getElementById('menu').scrollIntoView()">View menu</button><button class="btn" style="background:rgba(40,28,21,.7);color:#fff;border-color:transparent" onclick="openCart()">Your order · ${count()}</button></div></div></section><aside class="heroSide"><div><div class="eyebrow muted">REPLY 1988 CAFE</div><h2>A quiet corner in the city.</h2><p class="muted">20 Lê Hồng Phong, Hải Châu, Đà Nẵng</p></div><div class="photo">Atmosphere<br>Photo placeholder</div><div class="meta"><div class="metaBox"><small>Hours</small><strong>07:30–00:00</strong></div><div class="metaBox"><small>Your table</small><strong>${S.table}</strong></div></div></aside></div><section class="section"><div class="sectionHead"><div><div class="eyebrow muted">Popular</div><h2>What people come back for.</h2></div><span class="muted">⭐ Best sellers</span></div><div class="grid">${pop.map(card).join('')}</div></section><section class="section" id="menu"><div class="sectionHead"><div><div class="eyebrow muted">Menu</div><h2>Take your time.</h2></div><input class="search" placeholder="Search menu" value="${S.q}" oninput="S.q=this.value;render()"></div><div class="chips">${CAT.map(c=>`<button class="chip ${S.cat===c?'active':''}" onclick="S.cat='${c}';render()">${c}</button>`).join('')}</div><div class="grid">${list.map(card).join('')}</div></section><div class="infoGrid"><div class="info"><strong>About the café</strong><span>A cozy café at 20 Lê Hồng Phong. Minimal, warm and easy to settle into.</span></div><div class="info"><strong>Opening hours</strong><span>Every day · 07:30–00:00</span></div><div class="info"><strong>Order at table ${S.table}</strong><span>Your QR identifies the table automatically.</span></div></div></div><div class="floating ${count()?'show':''}" onclick="openCart()"><span class="count">${count()}</span><strong>Your order</strong><span>${full(total())}</span></div>`}
+function orderCard(o){const next=o.status==='New'?'Preparing':o.status==='Preparing'?'Ready':'Paid';return `<div class="order"><div class="orderTop"><div><strong>${o.id} · Table ${o.table}</strong><div class="muted" style="font-size:12px;margin-top:4px">${o.name||'Guest'} · ${new Date(o.createdAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div></div><span class="status">${o.status}</span></div><div class="items">${o.items.map(x=>`${x.qty} × ${product(x.id)?.en||x.id}`).join('<br>')}${o.comment?'<br><strong>Note:</strong> '+o.comment:''}</div><div class="orderTop"><strong>${full(o.total)}</strong><span class="muted" style="font-size:12px">${o.payment==='cash'?'Cash':'Counter'}${o.cash?` · Change ${full(Math.max(0,o.cash-o.total))}`:''}</span></div><div class="orderActions"><button class="primary" onclick="status('${o.id}','${next}')">${next==='Paid'?'Mark paid':next}</button><button onclick="showOrder('${o.id}')">View</button><button onclick="toast('Demo: cancellation flow ready for backend')">Cancel</button></div></div>`}
+function staff(){const arr=S.orders.filter(o=>S.filter==='all'||o.status!=='Paid');return `<div class="panel"><div class="panelHeader"><div><div class="eyebrow muted">REPLY 1988 · STAFF</div><h1>Order floor.</h1><p class="muted">Live service view. In production, orders arrive through realtime notifications.</p></div><div class="actions"><button class="btn" onclick="S.view='guest';render()">Guest view</button><button class="btn primary" onclick="simulate()">Simulate new order</button></div></div><div class="stats"><div class="stat"><small>New</small><strong>${S.orders.filter(o=>o.status==='New').length}</strong></div><div class="stat"><small>Preparing</small><strong>${S.orders.filter(o=>o.status==='Preparing').length}</strong></div><div class="stat"><small>Ready</small><strong>${S.orders.filter(o=>o.status==='Ready').length}</strong></div><div class="stat"><small>Paid</small><strong>${S.orders.filter(o=>o.status==='Paid').length}</strong></div></div><div class="cols"><section class="panelCard"><div class="sectionHead"><h2 style="font:500 30px Georgia,serif">Live orders</h2><div class="tabs" style="margin:0"><button class="${S.filter==='active'?'active':''}" onclick="S.filter='active';render()">Active</button><button class="${S.filter==='all'?'active':''}" onclick="S.filter='all';render()">All</button></div></div><div class="orders">${arr.length?arr.map(orderCard).join(''):'<div class="empty">No active orders.</div>'}</div></section><aside class="panelCard"><h2 style="font:500 30px Georgia,serif;margin:0">Today</h2><div class="info" style="margin-top:13px"><strong>${full(S.orders.reduce((a,o)=>a+o.total,0))}</strong><span>Demo order value</span></div><div class="info" style="margin-top:10px"><strong>${S.orders.length}</strong><span>Total orders</span></div><div class="info" style="margin-top:10px"><strong>Table ${S.table}</strong><span>Current QR demo context</span></div></aside></div></div>`}
+function admin(){return `<div class="panel"><div class="panelHeader"><div><div class="eyebrow muted">REPLY 1988 · ADMIN</div><h1>Control room.</h1><p class="muted">Manage menu, tables, staff, cafe info and analytics.</p></div><div class="actions"><button class="btn" onclick="S.view='guest';render()">Guest view</button><button class="btn" onclick="S.view='staff';render()">Staff view</button></div></div><div class="adminGrid"><nav class="adminNav"><button class="${S.tab==='menu'?'active':''}" onclick="S.tab='menu';render()">Menu</button><button class="${S.tab==='orders'?'active':''}" onclick="S.tab='orders';render()">Orders</button><button class="${S.tab==='tables'?'active':''}" onclick="S.tab='tables';render()">Tables & QR</button><button class="${S.tab==='staff'?'active':''}" onclick="S.tab='staff';render()">Staff & roles</button><button class="${S.tab==='analytics'?'active':''}" onclick="S.tab='analytics';render()">Analytics</button><button class="${S.tab==='info'?'active':''}" onclick="S.tab='info';render()">Cafe info</button></nav><main>${adminContent()}</main></div></div>`}
+function adminContent(){if(S.tab==='menu')return menuAdmin();if(S.tab==='orders')return ordersAdmin();if(S.tab==='tables')return tablesAdmin();if(S.tab==='staff')return staffAdmin();if(S.tab==='analytics')return analyticsAdmin();return infoAdmin()}
+function menuAdmin(){return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Menu manager</h2><div class="muted">${MENU.length} products · ${TOPS.length} toppings</div></div><div class="actions"><button class="btn" onclick="toast('Edit form opens here in production')">+ Add item</button></div></div>${MENU.map(p=>`<div class="row"><div class="thumb"></div><div><strong>${p.en}</strong><small>${p.cat}</small></div><div>${full(p.price)}</div><div>●</div><button class="btn" onclick='toast("Edit: ${p.en.replace(/"/g,'&quot;')}")'>Edit</button></div>`).join('')}</section>`}
+function ordersAdmin(){return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Orders</h2><div class="muted">History and payment state</div></div><button class="btn" onclick="exportCSV()">Export CSV</button></div>${S.orders.length?`<table class="table"><thead><tr><th>Order</th><th>Table</th><th>Total</th><th>Payment</th><th>Status</th></tr></thead><tbody>${S.orders.map(o=>`<tr><td>${o.id}</td><td>${o.table}</td><td>${full(o.total)}</td><td>${o.payment}</td><td>${o.status}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No orders yet.</div>'}</section>`}
+function tablesAdmin(){return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Tables & QR</h2><div class="muted">QR route: /?table=XX</div></div><button class="btn primary" onclick="toast('QR batch export ready for production')">Generate all QR</button></div><div class="grid" style="grid-template-columns:repeat(4,1fr)">${Array.from({length:24},(_,i)=>String(i+1).padStart(2,'0')).map(n=>`<div class="info"><strong>Table ${n}</strong><span>reply1988.app/?table=${n}</span><div class="actions"><button class="btn" onclick="S.table='${n}';S.view='guest';render()">Preview</button><button class="btn" onclick="toast('Print QR: Table ${n}')">QR</button></div></div>`).join('')}</div></section>`}
+function staffAdmin(){return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Staff & roles</h2><div class="muted">Owner · Manager · Cashier · Barista · Guest</div></div><button class="btn primary" onclick="toast('Invite staff in production')">+ Invite</button></div><table class="table"><thead><tr><th>Person</th><th>Role</th><th>Notifications</th></tr></thead><tbody><tr><td>Mai</td><td>Manager</td><td>In-app · Push · Telegram</td></tr><tr><td>Linh</td><td>Cashier</td><td>Orders · Payments</td></tr><tr><td>An</td><td>Barista</td><td>New · Preparing · Ready</td></tr></tbody></table></section>`}
+function analyticsAdmin(){const revenue=S.orders.reduce((a,o)=>a+o.total,0),avg=S.orders.length?revenue/S.orders.length:0;const counts={};S.orders.forEach(o=>o.items.forEach(i=>counts[i.id]=(counts[i.id]||0)+i.qty));const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);return `<section class="panelCard"><div class="stats" style="margin:0"><div class="stat"><small>Orders</small><strong>${S.orders.length}</strong></div><div class="stat"><small>Revenue</small><strong>${money(revenue)}</strong></div><div class="stat"><small>Avg check</small><strong>${money(avg)}</strong></div><div class="stat"><small>Conversion</small><strong>14.8%</strong></div></div><div class="analytics" style="margin-top:16px"><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Sales by hour</h2><div class="bars">${[28,44,35,58,75,66,86,91,64,50,69,78].map((h,i)=>`<div class="bar" style="height:${h}%"><span>${i+8}</span></div>`).join('')}</div></div><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Top products</h2><table class="table" style="margin-top:10px"><thead><tr><th>Product</th><th>Qty</th></tr></thead><tbody>${top.map(([id,n])=>`<tr><td>${product(id)?.en||id}</td><td>${n}</td></tr>`).join('')}</tbody></table></div></div><div class="infoGrid"><div class="info"><strong>1,242</strong><span>Menu views</span></div><div class="info"><strong>420</strong><span>Add to cart</span></div><div class="info"><strong>${S.orders.length}</strong><span>Orders</span></div></div></section>`}
+function infoAdmin(){return `<section class="panelCard"><h2 style="font:500 30px Georgia,serif;margin:0">Cafe information</h2><div class="form"><div class="field"><label>Name</label><input value="Reply 1988"></div><div class="field"><label>Address</label><input value="20 Lê Hồng Phong, Hải Châu, Đà Nẵng"></div><div class="field"><label>Hours</label><input value="07:30–00:00 · Every day"></div><div class="field"><label>Google Maps</label><input value="https://maps.google.com/"></div><div class="field"><label>Facebook</label><input value="https://www.facebook.com/Reply1988Cafe"></div><button class="btn primary" onclick="toast('Saved in demo mode')">Save changes</button></div></section>`}
+function simulate(){const o={id:'R88-'+String(Date.now()).slice(-6),table:String(1+Math.floor(Math.random()*24)).padStart(2,'0'),name:'Demo Guest',comment:'Less ice',payment:'cash',cash:100000,total:45000,status:'New',items:[{id:'egg',qty:1}],createdAt:Date.now()};S.orders.unshift(o);save();render();toast('New order received')}
+function exportCSV(){const h=['id','table','name','total','payment','status'];const rows=S.orders.map(o=>h.map(k=>JSON.stringify(o[k]??'')).join(','));const blob=new Blob([[h.join(','),...rows].join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='reply1988-orders.csv';a.click();URL.revokeObjectURL(a.href)}
+function shell(){document.getElementById('app').innerHTML=`<header class="top"><div class="topin"><div class="brand"><div class="logo">88</div>Reply 1988</div><div style="display:flex;gap:8px;align-items:center"><div class="switch"><button class="${S.view==='guest'?'active':''}" onclick="S.view='guest';render()">Guest</button><button class="${S.view==='staff'?'active':''}" onclick="S.view='staff';render()">Staff</button><button class="${S.view==='admin'?'active':''}" onclick="S.view='admin';render()">Admin</button></div><select class="lang" onchange="S.lang=this.value;render()"><option value="en" ${S.lang==='en'?'selected':''}>EN</option><option value="vi" ${S.lang==='vi'?'selected':''}>VI</option><option value="ru" ${S.lang==='ru'?'selected':''}>RU</option></select></div></div></header>${S.view==='guest'?guest():S.view==='staff'?staff():admin()}`}
+function render(){shell()}
+
+/* ===== FUNCTIONAL SHOWCASE ENHANCEMENTS ===== */
+S.cartDraft = JSON.parse(localStorage.getItem('r88_cartDraft') || '{"name":"","comment":"","pay":"cash","cash":""}');
+S.orderFilter = 'all';
+S.orderSearch = '';
+S.menuSearch = '';
+S.menuCategory = 'All';
+S.lastOrderId = null;
+
+const savedMenu = JSON.parse(localStorage.getItem('r88_menu') || 'null');
+MENU.forEach(p => { if (p.active === undefined) p.active = true; });
+if (Array.isArray(savedMenu)) savedMenu.forEach(saved => {
+  const p = MENU.find(x => x.id === saved.id);
+  if (p) Object.assign(p, saved);
+});
+function saveMenu(){ localStorage.setItem('r88_menu', JSON.stringify(MENU)); }
+function saveDraft(){ localStorage.setItem('r88_cartDraft', JSON.stringify(S.cartDraft)); }
+const defaultCafe = {
+  name:'Reply 1988',
+  address:'20 Lê Hồng Phong, Hải Châu, Đà Nẵng',
+  hours:'07:30–00:00 · Every day',
+  maps:'https://maps.google.com/?q=Reply+1988+Cafe+Da+Nang',
+  facebook:'https://www.facebook.com/Reply1988Cafe'
+};
+const CAFE = JSON.parse(localStorage.getItem('r88_cafe') || 'null') || defaultCafe;
+function saveCafe(){localStorage.setItem('r88_cafe', JSON.stringify(CAFE));}
+const defaultStaff = [
+  {id:'mai',name:'Mai',role:'Manager',notify:'In-app, Push, Telegram'},
+  {id:'linh',name:'Linh',role:'Cashier',notify:'Orders, Payments'},
+  {id:'an',name:'An',role:'Barista',notify:'New, Preparing, Ready'}
+];
+const STAFF = JSON.parse(localStorage.getItem('r88_staff') || 'null') || defaultStaff;
+function saveStaff(){localStorage.setItem('r88_staff', JSON.stringify(STAFF));}
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('Copied to clipboard')).catch(()=>toast(text));
+  } else toast(text);
+}
+function product(id){ return MENU.find(x=>x.id===id); }
+function add(id,price=null,meta={},amount=1){
+  const p=product(id); if(!p||p.active===false)return;
+  const key=id+'|'+(meta.temp||'')+'|'+(meta.top||'');
+  const found=S.cart.find(x=>x.key===key);
+  if(found)found.qty+=amount;
+  else S.cart.push({key,id,price:price||p.price,qty:amount,temp:meta.temp||'',top:meta.top||''});
+  save(); render(); toast(amount>1?`${amount} added to order`:'Added to order');
+}
+function updateDraft(key,value){
+  S.cartDraft[key]=value; saveDraft();
+}
+function openProduct(id){
+  const p=product(id); if(!p)return;
+  window.choice={id, temp:p.temps?.[0]||'',top:'',qty:1};
+  $('modal').innerHTML=`<div class="modalCard">
+    <div class="drawerHead"><h2>${pname(p)}</h2><button class="close" onclick="closeModal()">×</button></div>
+    <div class="detail">
+      <div class="detailImg">${p.vi}</div>
+      <div>
+        <div class="eyebrow muted">${p.cat}</div>
+        <div style="font-size:27px;font-weight:800;color:var(--brown);margin:10px 0">${full(p.price)}</div>
+        <p class="muted" style="line-height:1.65">${p.desc}</p>
+        ${p.temps?`<div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Temperature</div><div class="options">${p.temps.map((x,i)=>`<button class="option ${i===0?'active':''}" data-v="${x}" onclick="pickOpt(this,'temp')">${x}</button>`).join('')}</div></div>`:''}
+        <div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Extra topping</div><div class="options"><button class="option active" data-v="" onclick="pickOpt(this,'top')">None</button>${TOPS.map(x=>`<button class="option" data-v="${x.id}" onclick="pickOpt(this,'top')">${x.name} +${money(x.price)}</button>`).join('')}</div></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:20px"><span class="muted" style="font-size:12px">Quantity</span><div class="qty"><button onclick="changeModalQty(-1)">−</button><strong id="modalQty">1</strong><button onclick="changeModalQty(1)">+</button></div></div>
+        <button class="submit" style="margin-top:22px" onclick="addModal('${id}')">Add to order · <span id="modalTotal">${full(p.price)}</span></button>
+      </div>
+    </div>
+  </div>`;
+  $('modal').classList.add('open');
+}
+function changeModalQty(d){
+  window.choice.qty=Math.max(1,window.choice.qty+d);
+  const p=product(window.choice.id||'');
+  $('modalQty').textContent=window.choice.qty;
+  if(p){
+    const top=TOPS.find(x=>x.id===window.choice.top);
+    $('modalTotal').textContent=full((p.price+(top?.price||0))*window.choice.qty);
+  }
+}
+function pickOpt(btn,type){
+  btn.parentElement.querySelectorAll('.option').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.choice[type]=btn.dataset.v;
+  const p=product(window.choice.id||'');
+  if(p){
+    const top=TOPS.find(x=>x.id===window.choice.top);
+    $('modalTotal').textContent=full((p.price+(top?.price||0))*window.choice.qty);
+  }
+}
+function addModal(id){
+  window.choice.id=id;
+  const t=TOPS.find(x=>x.id===window.choice.top);
+  add(id,product(id).price+(t?.price||0),{temp:window.choice.temp,top:t?.id||''},window.choice.qty);
+  closeModal(); openCart();
+}
+function renderCart(){
+  const items=S.cart.map(x=>{
+    const p=product(x.id), top=TOPS.find(t=>t.id===x.top);
+    return `<div class="cartRow"><div><strong>${pname(p)}</strong><div class="muted" style="font-size:12px;margin-top:4px">${x.temp||''}${top?' · '+top.name:''}</div><div class="price" style="margin-top:6px">${full(x.price*x.qty)}</div></div><div class="qty"><button onclick="qty('${x.key}',-1)">−</button><strong>${x.qty}</strong><button onclick="qty('${x.key}',1)">+</button></div></div>`;
+  }).join('');
+  $('drawer').innerHTML=`<div class="drawerPanel">
+    <div class="drawerHead"><div><div class="eyebrow muted">TABLE ${S.table}</div><h2>Your order</h2></div><button class="close" onclick="closeCart()">×</button></div>
+    ${items||'<div class="empty">Your cart is empty.</div>'}
+    ${S.cart.length?`<div class="form">
+      <div class="total"><span>Total</span><span>${full(total())}</span></div>
+      <div class="field"><label>Name (optional)</label><input id="cname" value="${S.cartDraft.name.replace(/"/g,'&quot;')}" oninput="updateDraft('name',this.value)"></div>
+      <div class="field"><label>Comment (optional)</label><textarea id="ccomment" oninput="updateDraft('comment',this.value)">${S.cartDraft.comment}</textarea></div>
+      <div class="field"><label>Payment</label><select id="pay" onchange="updateDraft('pay',this.value);toggleCash()"><option value="cash" ${S.cartDraft.pay==='cash'?'selected':''}>Cash</option><option value="counter" ${S.cartDraft.pay==='counter'?'selected':''}>Pay at counter</option></select></div>
+      <div id="cashBox" class="cashBox" style="display:${S.cartDraft.pay==='cash'?'block':'none'}"><div class="field"><label>I pay with</label><input id="cash" type="number" min="${total()}" placeholder="${total()}" value="${S.cartDraft.cash}" oninput="updateDraft('cash',this.value);calcChange()"></div><div id="change" class="muted" style="font-weight:800;margin-top:7px">Change: ${S.cartDraft.cash?full(Math.max(0,Number(S.cartDraft.cash)-total())):'—'}</div></div>
+      <button class="submit" onclick="placeOrder()">Place order · ${money(total())}</button>
+      <button class="btn" style="width:100%" onclick="S.cart=[];S.cartDraft={name:'',comment:'',pay:'cash',cash:''};save();saveDraft();render();openCart()">Clear cart</button>
+    </div>`:''}
+  </div>`;
+}
+function qty(key,d){
+  const x=S.cart.find(i=>i.key===key); if(!x)return;
+  x.qty+=d;if(x.qty<=0)S.cart=S.cart.filter(i=>i.key!==key);
+  save();render();openCart();
+}
+function calcChange(){
+  const v=Number($('cash')?.value||0), change=$('change');
+  if(change)change.textContent='Change: '+(v?full(Math.max(0,v-total())):'—');
+}
+function placeOrder(){
+  const pay=S.cartDraft.pay,cash=Number(S.cartDraft.cash||0);
+  if(pay==='cash' && cash<total()){toast('Enter the cash amount the guest will pay');return;}
+  const o={id:'R88-'+String(Date.now()).slice(-6),table:S.table,name:S.cartDraft.name.trim(),comment:S.cartDraft.comment.trim(),payment:pay,cash,total:total(),status:'New',items:S.cart.map(x=>({id:x.id,qty:x.qty,temp:x.temp,price:x.price})),createdAt:Date.now()};
+  S.orders.unshift(o);S.lastOrderId=o.id;S.cart=[];S.cartDraft={name:'',comment:'',pay:'cash',cash:''};save();saveDraft();closeCart();render();toast('Order sent · '+o.id);setTimeout(()=>showOrder(o.id),250);
+}
+function showOrder(id){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;
+  const steps=['New','Preparing','Ready','Paid'],cur=steps.indexOf(o.status);
+  $('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><div><div class="eyebrow muted">ORDER CONFIRMED</div><h2>${o.id}</h2></div><button class="close" onclick="closeModal()">×</button></div>
+  <div class="muted">Table ${o.table}${o.name?' · '+o.name:''}</div>
+  <div style="margin-top:18px;display:grid;gap:9px">${steps.map((s,i)=>`<div style="display:flex;align-items:center;gap:11px;padding:13px;border-radius:15px;background:${i<=cur?'#ebe0d4':'#f7f3ee'}"><span style="font-size:16px">${i<=cur?'●':'○'}</span><strong>${s}</strong></div>`).join('')}</div>
+  <div class="infoGrid" style="grid-template-columns:1fr 1fr;margin-top:15px"><div class="info"><strong>${full(o.total)}</strong><span>${o.payment==='cash'?'Cash':'Pay at counter'}</span></div><div class="info"><strong>${o.items.reduce((a,x)=>a+x.qty,0)}</strong><span>Items</span></div></div>
+  <div class="actions"><button class="btn" onclick="copyText('${o.id}')">Copy order number</button><button class="btn primary" onclick="closeModal()">Continue browsing</button></div></div>`;
+  $('modal').classList.add('open');
+}
+function status(id,s){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;o.status=s;if(s==='Paid')o.paymentStatus='paid';save();render();toast(id+' · '+s);
+}
+function card(p){
+  return `<article class="card" onclick="openProduct('${p.id}')"><div class="pic">${p.vi}${p.hot?'<span class="badge">Best seller</span>':''}</div><div class="body"><div class="title">${pname(p)}</div><div class="desc">${p.desc}</div><div class="foot"><span class="price">${full(p.price)}</span><button class="plus" onclick="event.stopPropagation();add('${p.id}')">+</button></div></div></article>`;
+}
+function guest(){
+  const pop=MENU.filter(x=>x.hot&&x.active!==false).slice(0,6);
+  const list=MENU.filter(p=>p.active!==false&&(S.cat==='All'||p.cat===S.cat)&&(!S.q||p.en.toLowerCase().includes(S.q.toLowerCase())||p.vi.toLowerCase().includes(S.q.toLowerCase())));
+  return `<div class="wrap">
+  <div class="hero"><section class="heroMain"><div class="heroCopy"><div class="eyebrow">Da Nang · Café · Table ${S.table}</div><h1>${CAFE.name}</h1><p>A warm little café for coffee, matcha, tea and slow moments. Scan, order at your table, and enjoy your time.</p><div class="actions"><button class="btn" onclick="document.getElementById('menu').scrollIntoView()">Explore menu</button><button class="btn" style="background:rgba(40,28,21,.72);color:#fff;border-color:transparent" onclick="openCart()">Your order · ${count()}</button><a class="btn" href="${CAFE.maps}" target="_blank" rel="noopener">Directions</a></div></div></section>
+  <aside class="heroSide"><div><div class="eyebrow muted">REPLY 1988 CAFE</div><h2>A quiet corner in the city.</h2><p class="muted">${CAFE.address}</p></div><div class="photo"></div><div class="meta"><div class="metaBox"><small>Hours</small><strong>${CAFE.hours}</strong></div><div class="metaBox"><small>Your table</small><strong>${S.table}</strong></div></div></aside></div>
+  <section class="section"><div class="sectionHead"><div><div class="eyebrow muted">Popular</div><h2>What people come back for.</h2></div><span class="muted">⭐ Best sellers</span></div><div class="grid">${pop.map(card).join('')}</div></section>
+  <section class="section" id="menu"><div class="sectionHead"><div><div class="eyebrow muted">Menu</div><h2>Take your time.</h2></div><input class="search" placeholder="Search coffee, matcha, tea..." value="${S.q}" oninput="S.q=this.value;render()"></div><div class="chips">${CAT.map(c=>`<button class="chip ${S.cat===c?'active':''}" onclick="S.cat='${c}';render()">${c}</button>`).join('')}</div><div class="grid">${list.map(card).join('')}</div></section>
+  <div class="infoGrid"><div class="info"><strong>About the café</strong><span>${CAFE.address}. Minimal, warm and easy to settle into.</span></div><div class="info"><strong>Opening hours</strong><span>${CAFE.hours}</span></div><div class="info"><strong>Order at table ${S.table}</strong><span>Your QR identifies the table automatically. For delivery, use Grab separately.</span></div></div>
+  </div><div class="floating ${count()?'show':''}" onclick="openCart()"><span class="count">${count()}</span><strong>Your order</strong><span>${full(total())}</span></div>`;
+}
+function orderCard(o){
+  const next=o.status==='New'?'Preparing':o.status==='Preparing'?'Ready':'Paid';
+  return `<div class="order"><div class="orderTop"><div><strong>${o.id} · Table ${o.table}</strong><div class="muted" style="font-size:12px;margin-top:4px">${o.name||'Guest'} · ${new Date(o.createdAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div></div><span class="status">${o.status}</span></div><div class="items">${o.items.map(x=>`${x.qty} × ${product(x.id)?.en||x.id}`).join('<br>')}${o.comment?'<br><strong>Note:</strong> '+o.comment:''}</div><div class="orderTop"><strong>${full(o.total)}</strong><span class="muted" style="font-size:12px">${o.payment==='cash'?'Cash':'Counter'}${o.cash?` · Change ${full(Math.max(0,o.cash-o.total))}`:''}</span></div><div class="orderActions"><button class="primary" onclick="status('${o.id}','${next}')">${next==='Paid'?'Mark paid':next}</button><button onclick="showOrder('${o.id}')">View</button><button onclick="toast('Demo: cancellation ready for backend')">Cancel</button></div></div>`;
+}
+function staff(){
+  const filtered=S.orders.filter(o=>{
+    const matchFilter=S.orderFilter==='all'||o.status===S.orderFilter;
+    const q=S.orderSearch.toLowerCase();
+    const matchSearch=!q||o.id.toLowerCase().includes(q)||String(o.table).includes(q)||(o.name||'').toLowerCase().includes(q);
+    return matchFilter&&matchSearch;
+  });
+  return `<div class="panel"><div class="panelHeader"><div><div class="eyebrow muted">REPLY 1988 · STAFF</div><h1>Order floor.</h1><p class="muted">This is the service screen: receive, prepare, mark ready and confirm payment.</p></div><div class="actions"><button class="btn" onclick="S.view='guest';render()">Guest view</button><button class="btn primary" onclick="simulate()">Simulate new order</button></div></div>
+  <div class="stats"><div class="stat"><small>New</small><strong>${S.orders.filter(o=>o.status==='New').length}</strong></div><div class="stat"><small>Preparing</small><strong>${S.orders.filter(o=>o.status==='Preparing').length}</strong></div><div class="stat"><small>Ready</small><strong>${S.orders.filter(o=>o.status==='Ready').length}</strong></div><div class="stat"><small>Paid</small><strong>${S.orders.filter(o=>o.status==='Paid').length}</strong></div></div>
+  <div class="cols"><section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Orders</h2><div class="tabs" style="margin:10px 0 0">${['all','New','Preparing','Ready','Paid'].map(f=>`<button class="${S.orderFilter===f?'active':''}" onclick="S.orderFilter='${f}';render()">${f}</button>`).join('')}</div></div><input class="search" placeholder="Search order, table, name..." value="${S.orderSearch}" oninput="S.orderSearch=this.value;render()"></div><div class="orders">${filtered.length?filtered.map(orderCard).join(''):'<div class="empty">No matching orders.</div>'}</div></section>
+  <aside class="panelCard"><h2 style="font:500 30px Georgia,serif;margin:0">Service tools</h2><div class="info" style="margin-top:13px"><strong>${S.orders.filter(o=>o.status!=='Paid').length}</strong><span>Orders still open</span></div><div class="info" style="margin-top:10px"><strong>${full(S.orders.reduce((a,o)=>a+o.total,0))}</strong><span>Demo order value</span></div><div class="actions"><button class="btn" onclick="toast('Browser notification simulated')">Test notification</button><button class="btn" onclick="copyText(location.href+'?table='+S.table)">Copy current QR link</button></div></aside></div></div>`;
+}
+function admin(){
+  return `<div class="panel"><div class="panelHeader"><div><div class="eyebrow muted">REPLY 1988 · ADMIN</div><h1>Control room.</h1><p class="muted">Everything the café team needs to manage the QR ordering system.</p></div><div class="actions"><button class="btn" onclick="S.view='guest';render()">Guest</button><button class="btn" onclick="S.view='staff';render()">Staff</button><button class="btn danger" onclick="resetDemo()">Reset demo</button></div></div>
+  <div class="adminGrid"><nav class="adminNav"><button class="${S.tab==='menu'?'active':''}" onclick="S.tab='menu';render()">Menu</button><button class="${S.tab==='orders'?'active':''}" onclick="S.tab='orders';render()">Orders</button><button class="${S.tab==='tables'?'active':''}" onclick="S.tab='tables';render()">Tables & QR</button><button class="${S.tab==='staff'?'active':''}" onclick="S.tab='staff';render()">Staff & roles</button><button class="${S.tab==='analytics'?'active':''}" onclick="S.tab='analytics';render()">Analytics</button><button class="${S.tab==='info'?'active':''}" onclick="S.tab='info';render()">Cafe info</button></nav><main>${adminContent()}</main></div></div>`;
+}
+function menuAdmin(){
+  const rows=MENU.filter(p=>(S.menuCategory==='All'||p.cat===S.menuCategory)&&(!S.menuSearch||p.en.toLowerCase().includes(S.menuSearch.toLowerCase())||p.vi.toLowerCase().includes(S.menuSearch.toLowerCase())));
+  return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Menu manager</h2><div class="muted">${MENU.length} products · ${TOPS.length} toppings · edits are saved locally</div></div><div class="actions"><button class="btn" onclick="openEditProduct()">+ Add item</button><button class="btn" onclick="exportMenu()">Export menu</button></div></div><div class="actions" style="margin-bottom:12px"><input class="search" placeholder="Search menu..." value="${S.menuSearch}" oninput="S.menuSearch=this.value;render()"><select class="lang" onchange="S.menuCategory=this.value;render()"><option>All</option>${CAT.filter(x=>x!=='All').map(c=>`<option ${S.menuCategory===c?'selected':''}>${c}</option>`).join('')}</select></div>${rows.map(p=>`<div class="row"><div class="thumb"></div><div><strong>${p.en}</strong><small>${p.cat} · ${p.active!==false?'Active':'Hidden'}</small></div><div>${full(p.price)}</div><div><button class="btn" onclick="toggleProduct('${p.id}')">${p.active!==false?'On':'Off'}</button></div><button class="btn" onclick="openEditProduct('${p.id}')">Edit</button></div>`).join('')}</section><section class="panelCard" style="margin-top:15px"><h2 style="font:500 26px Georgia,serif;margin:0 0 10px">Extra toppings</h2><table class="table"><thead><tr><th>Name</th><th>Price</th><th>Status</th></tr></thead><tbody>${TOPS.map(x=>`<tr><td>${x.name}</td><td>${full(x.price)}</td><td>Active</td></tr>`).join('')}</tbody></table></section>`;
+}
+function toggleProduct(id){const p=product(id);if(!p)return;p.active=p.active===false;saveMenu();render();toast(`${p.en} · ${p.active?'Active':'Hidden'}`)}
+function openEditProduct(id=''){
+  const p=id?product(id):{id:'',cat:'Italian Coffee',en:'',vi:'',ru:'',desc:'',price:45000,active:true};
+  $('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><div><div class="eyebrow muted">${id?'EDIT PRODUCT':'NEW PRODUCT'}</div><h2>${id?'Edit menu item':'Add menu item'}</h2></div><button class="close" onclick="closeModal()">×</button></div>
+  <div class="form"><div class="field"><label>Name EN</label><input id="ep_en" value="${(p.en||'').replace(/"/g,'&quot;')}"></div><div class="field"><label>Name VI</label><input id="ep_vi" value="${(p.vi||'').replace(/"/g,'&quot;')}"></div><div class="field"><label>Category</label><select id="ep_cat">${CAT.filter(x=>x!=='All').map(c=>`<option ${p.cat===c?'selected':''}>${c}</option>`).join('')}</select></div><div class="field"><label>Description</label><textarea id="ep_desc">${p.desc||''}</textarea></div><div class="field"><label>Price (VND)</label><input id="ep_price" type="number" min="0" value="${p.price||0}"></div><div class="field"><label>Featured bestseller</label><select id="ep_hot"><option value="false" ${!p.hot?'selected':''}>No</option><option value="true" ${p.hot?'selected':''}>Yes</option></select></div><button class="submit" onclick="saveProduct('${id}')">Save product</button></div></div>`;
+  $('modal').classList.add('open');
+}
+function saveProduct(id){
+  const p=id?product(id):{id:'custom-'+Date.now(),temps:null,hot:false,active:true};
+  p.en=$('ep_en').value.trim()||'Untitled';
+  p.vi=$('ep_vi').value.trim()||p.en;
+  p.ru=p.en;p.cat=$('ep_cat').value;p.desc=$('ep_desc').value.trim();p.price=Number($('ep_price').value||0);p.hot=$('ep_hot').value==='true';p.active=true;
+  if(!id)MENU.push(p);
+  saveMenu();closeModal();render();toast('Menu item saved');
+}
+function exportMenu(){
+  const h=['id','name_en','name_vi','category','price','active'];
+  const rows=MENU.map(p=>h.map(k=>JSON.stringify(k==='name_en'?p.en:k==='name_vi'?p.vi:k==='category'?p.cat:k==='price'?p.price:k==='active'?p.active:p.id)).join(','));
+  const blob=new Blob([[h.join(','),...rows].join('\\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='reply1988-menu.csv';a.click();URL.revokeObjectURL(a.href);
+}
+function ordersAdmin(){
+  const q=S.orderSearch.toLowerCase();
+  const rows=S.orders.filter(o=>!q||o.id.toLowerCase().includes(q)||String(o.table).includes(q)||(o.name||'').toLowerCase().includes(q));
+  return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Orders</h2><div class="muted">${S.orders.length} total orders</div></div><div class="actions"><input class="search" placeholder="Search orders..." value="${S.orderSearch}" oninput="S.orderSearch=this.value;render()"><button class="btn" onclick="exportCSV()">Export CSV</button></div></div>${rows.length?`<table class="table"><thead><tr><th>Order</th><th>Table</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody>${rows.map(o=>`<tr><td>${o.id}</td><td>${o.table}</td><td>${full(o.total)}</td><td>${o.payment}</td><td>${o.status}</td><td><button class="btn" onclick="showOrder('${o.id}')">View</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No matching orders.</div>'}</section>`;
+}
+function tablesAdmin(){
+  return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Tables & QR</h2><div class="muted">Open or copy a table-specific menu link for every table.</div></div><button class="btn primary" onclick="copyText(location.href.split('?')[0])">Copy base link</button></div><div class="grid" style="grid-template-columns:repeat(4,1fr)">${Array.from({length:24},(_,i)=>String(i+1).padStart(2,'0')).map(n=>`<div class="info"><strong>Table ${n}</strong><span>...?table=${n}</span><div class="actions"><button class="btn" onclick="S.table='${n}';S.view='guest';render()">Open</button><button class="btn" onclick="copyText(location.href.split('?')[0]+'?table=${n}')">Copy</button><button class="btn" onclick="qrPreview('${n}')">QR</button></div></div>`).join('')}</div></section>`;
+}
+function qrPreview(n){
+  const url=location.href.split('?')[0]+'?table='+n;
+  $('modal').innerHTML=`<div class="modalCard" style="max-width:430px;text-align:center"><div class="drawerHead"><h2>Table ${n}</h2><button class="close" onclick="closeModal()">×</button></div><div style="width:230px;height:230px;margin:15px auto;border:14px solid #fff;background:repeating-conic-gradient(#2d2823 0 8%,#fff 0 16%);display:grid;place-items:center"><div style="width:70px;height:70px;background:#fff;display:grid;place-items:center;font:700 15px Georgia,serif;color:var(--brown)">88</div></div><p class="muted" style="word-break:break-all">${url}</p><div class="actions" style="justify-content:center"><button class="btn primary" onclick="copyText('${url}')">Copy link</button><button class="btn" onclick="S.table='${n}';S.view='guest';closeModal();render()">Open guest view</button></div><div class="muted" style="font-size:11px;margin-top:12px">Demo QR artwork. Production will generate a real scannable QR code.</div></div>`;
+  $('modal').classList.add('open');
+}
+function staffAdmin(){
+  return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Staff & roles</h2><div class="muted">Edit role assignments for this demo workspace.</div></div><button class="btn primary" onclick="addStaff()">+ Invite</button></div><table class="table"><thead><tr><th>Person</th><th>Role</th><th>Notification scope</th><th></th></tr></thead><tbody>${STAFF.map(s=>`<tr><td>${s.name}</td><td><select class="lang" onchange="changeStaffRole('${s.id}',this.value)"><option ${s.role==='Owner'?'selected':''}>Owner</option><option ${s.role==='Manager'?'selected':''}>Manager</option><option ${s.role==='Cashier'?'selected':''}>Cashier</option><option ${s.role==='Barista'?'selected':''}>Barista</option></select></td><td>${s.notify}</td><td><button class="btn danger" onclick="removeStaff('${s.id}')">Remove</button></td></tr>`).join('')}</tbody></table></section>`;
+}
+function changeStaffRole(id,role){const s=STAFF.find(x=>x.id===id);if(s){s.role=role;saveStaff();toast(`${s.name} · ${role}`)}}
+function addStaff(){const name=prompt('Staff name');if(!name)return;STAFF.push({id:'staff-'+Date.now(),name,role:'Barista',notify:'In-app'});saveStaff();render();toast('Staff added')}
+function removeStaff(id){const i=STAFF.findIndex(x=>x.id===id);if(i<0)return;if(confirm('Remove this staff member?')){STAFF.splice(i,1);saveStaff();render();}}
+function analyticsAdmin(){
+  const revenue=S.orders.reduce((a,o)=>a+o.total,0),avg=S.orders.length?revenue/S.orders.length:0;
+  const counts={};S.orders.forEach(o=>o.items.forEach(i=>counts[i.id]=(counts[i.id]||0)+i.qty));
+  const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const byHour={};S.orders.forEach(o=>{const h=new Date(o.createdAt).getHours();byHour[h]=(byHour[h]||0)+o.total});
+  const hours=Array.from({length:12},(_,i)=>i+8),max=Math.max(1,...hours.map(h=>byHour[h]||0));
+  return `<section class="panelCard"><div class="stats" style="margin:0"><div class="stat"><small>Orders</small><strong>${S.orders.length}</strong></div><div class="stat"><small>Revenue</small><strong>${money(revenue)}</strong></div><div class="stat"><small>Avg check</small><strong>${money(avg)}</strong></div><div class="stat"><small>Open orders</small><strong>${S.orders.filter(o=>o.status!=='Paid').length}</strong></div></div><div class="analytics" style="margin-top:16px"><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Sales by hour</h2><div class="bars">${hours.map(h=>{const value=byHour[h]||0;const pct=Math.max(8,Math.round(value/max*100));return `<div class="bar" style="height:${pct}%"><span>${h}</span></div>`}).join('')}</div></div><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Top products</h2><table class="table" style="margin-top:10px"><thead><tr><th>Product</th><th>Qty</th></tr></thead><tbody>${top.length?top.map(([id,n])=>`<tr><td>${product(id)?.en||id}</td><td>${n}</td></tr>`).join(''):'<tr><td colspan="2">No data</td></tr>'}</tbody></table></div></div><div class="infoGrid"><div class="info"><strong>${(1242+S.orders.length*7).toLocaleString()}</strong><span>Menu views (demo)</span></div><div class="info"><strong>${(420+count()).toLocaleString()}</strong><span>Add to cart events</span></div><div class="info"><strong>${S.orders.length}</strong><span>Orders</span></div></div></section>`;
+}
+function infoAdmin(){
+  return `<section class="panelCard"><h2 style="font:500 30px Georgia,serif;margin:0">Cafe information</h2><div class="form"><div class="field"><label>Name</label><input id="ci_name" value="${CAFE.name}"></div><div class="field"><label>Address</label><input id="ci_address" value="${CAFE.address}"></div><div class="field"><label>Hours</label><input id="ci_hours" value="${CAFE.hours}"></div><div class="field"><label>Google Maps</label><input id="ci_maps" value="${CAFE.maps}"></div><div class="field"><label>Facebook</label><input id="ci_facebook" value="${CAFE.facebook}"></div><button class="btn primary" onclick="saveCafeInfo()">Save changes</button></div></section>`;
+}
+function saveCafeInfo(){
+  CAFE.name=$('ci_name').value.trim()||defaultCafe.name;CAFE.address=$('ci_address').value.trim()||defaultCafe.address;CAFE.hours=$('ci_hours').value.trim()||defaultCafe.hours;CAFE.maps=$('ci_maps').value.trim()||defaultCafe.maps;CAFE.facebook=$('ci_facebook').value.trim()||defaultCafe.facebook;
+  saveCafe();render();toast('Cafe information saved');
+}
+function resetDemo(){
+  if(!confirm('Reset demo orders, menu edits and settings?'))return;
+  localStorage.removeItem('r88_orders');localStorage.removeItem('r88_menu');localStorage.removeItem('r88_cafe');localStorage.removeItem('r88_staff');localStorage.removeItem('r88_cart');localStorage.removeItem('r88_cartDraft');location.reload();
+}
+
+
+/* ===== BRAND SHOWCASE + QA OVERRIDES ===== */
+const BRAND_PHOTOS={
+ 'Italian Coffee':['photo-1509042239860-f550ce710b93','photo-1541167760496-1628856ab772','photo-1510707577719-ae7c14805e3a','photo-1572442388796-11668a67e53d','photo-1461023058943-07fcbe16d735','photo-1585464231875-d9ef1f5ad396'],
+ 'Vietnamese Coffee':['photo-1541167760496-1628856ab772','photo-1509042239860-f550ce710b93','photo-1510707577719-ae7c14805e3a','photo-1461023058943-07fcbe16d735'],
+ 'Matcha':['photo-1536256263959-770b48d82b0a','photo-1572442388796-11668a67e53d','photo-1461023058943-07fcbe16d735','photo-1558857563-b371033873b8'],
+ 'Tea':['photo-1556679343-c7306c1976bc','photo-1600271886742-f049cd451bba','photo-1553787499-6f9133860278','photo-1536256263959-770b48d82b0a'],
+ 'Milk-tea':['photo-1558857563-b371033873b8','photo-1536256263959-770b48d82b0a','photo-1556679343-c7306c1976bc','photo-1461023058943-07fcbe16d735'],
+ 'Non-Coffee':['photo-1542990253-0d0f5be5f045','photo-1536256263959-770b48d82b0a','photo-1553787499-6f9133860278','photo-1600271886742-f049cd451bba'],
+ 'Smoothies':['photo-1553787499-6f9133860278','photo-1590080875515-8a3a8dc5735e','photo-1623065422902-30a2d299bbe4','photo-1502741224143-90386d7f8c82'],
+ 'Ice Blended':['photo-1461023058943-07fcbe16d735','photo-1542990253-0d0f5be5f045','photo-1536256263959-770b48d82b0a','photo-1553787499-6f9133860278']
+};
+const BRAND_GALLERY=['photo-1554118811-1e0d58224f24','photo-1521017432531-fbd92d768814','photo-1501339847302-ac426a4a7cbb','photo-1445116572660-236099ec97a0','photo-1493857671505-72967e2e2760','photo-1453614512568-c4024d13c247'];
+const BRAND_REVIEWS=[
+ {a:'M',name:'Maria E',source:'Google Maps',text:'Friendly staff and a pleasant atmosphere. The team was attentive and quickly helped us arrange a comfortable place outside for a group.'},
+ {a:'P',name:'Pavel Douglas',source:'Google Maps',text:'The Matcha Oreo stood out. Cakes were good, and the café has a pleasant atmosphere, though weekends can get a little louder.'},
+ {a:'E',name:'Ella',source:'Google Maps',text:'A minimalist interior with light tones and clean lines. The open veranda and relaxed atmosphere make the space especially enjoyable.'}
+];
+function brandPhotoFor(p,idx=0){const pool=BRAND_PHOTOS[p.cat]||BRAND_GALLERY;return `https://images.unsplash.com/${pool[idx%pool.length]}?auto=format&fit=crop&w=900&q=78`;}
+function openBrandLightbox(src,caption=''){openModalImage(src,caption)}
+function openModalImage(src,caption=''){$('modal').innerHTML=`<div class="modalCard" style="max-width:980px;background:transparent;padding:0;box-shadow:none;border:0"><button style="position:fixed;top:22px;right:28px;color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;z-index:3" onclick="closeModal()">×</button><img src="${src}" alt="${caption.replace(/"/g,'&quot;')}" style="width:100%;max-height:82vh;object-fit:contain;border-radius:16px">${caption?`<div style="color:#fff;text-align:center;margin-top:12px;font-size:12px">${caption}</div>`:''}</div>`;$('modal').classList.add('open')}
+function brandScroll(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function brandMenuCard(p,idx){return `<article class="brand-menu-card"><div class="brand-menu-img"><img loading="lazy" src="${brandPhotoFor(p,idx)}" alt="${pname(p)}"><span>${p.hot?'<span class="brand-menu-tag">Best seller</span>':''}</span></div><div class="brand-menu-body"><div class="brand-menu-top"><h3>${pname(p)}</h3><span class="brand-price">${full(p.price)}</span></div><p>${p.desc}</p><div class="brand-menu-actions"><button class="brand-add" onclick="openProduct('${p.id}')">View & order</button><button class="brand-view" title="Quick add" onclick="event.stopPropagation();add('${p.id}')">+</button></div></div></article>`}
+function toggleBrandMobile(){document.getElementById('brandMobileLinks')?.classList.toggle('on')}
+function qrUrlForTable(n){return location.href.split('?')[0]+'?table='+encodeURIComponent(n)}
+function qrImageUrl(n){return 'https://api.qrserver.com/v1/create-qr-code/?size=500x500&margin=10&data='+encodeURIComponent(qrUrlForTable(n))}
+function qrPreview(n){const url=qrUrlForTable(n);$('modal').innerHTML=`<div class="modalCard" style="max-width:440px;text-align:center"><div class="drawerHead"><div><div class="eyebrow muted">TABLE QR</div><h2>Table ${n}</h2></div><button class="close" onclick="closeModal()">×</button></div><img src="${qrImageUrl(n)}" alt="QR for table ${n}" style="width:230px;height:230px;object-fit:contain;background:#fff;border-radius:12px;margin:10px auto 15px"><p class="muted" style="word-break:break-all;font-size:12px">${url}</p><div class="actions" style="justify-content:center"><button class="btn primary" onclick="copyText('${url}')">Copy link</button><button class="btn" onclick="S.table='${n}';S.view='guest';closeModal();render()">Open guest view</button></div></div>`;$('modal').classList.add('open')}
+function guest(){
+ const pop=MENU.filter(x=>x.hot&&x.active!==false).slice(0,6);
+ const list=MENU.filter(p=>p.active!==false&&(S.cat==='All'||p.cat===S.cat)&&(!S.q||p.en.toLowerCase().includes(S.q.toLowerCase())||p.vi.toLowerCase().includes(S.q.toLowerCase())));
+ const cats=['All',...new Set(MENU.filter(p=>p.active!==false).map(p=>p.cat))];
+ return `<div class="brand-page"><div class="brand-mobile-links" id="brandMobileLinks"><a href="#about" onclick="toggleBrandMobile()">About</a><a href="#menu" onclick="toggleBrandMobile()">Menu</a><a href="#gallery" onclick="toggleBrandMobile()">Space</a><a href="#reviews" onclick="toggleBrandMobile()">Reviews</a><a href="#contact" onclick="toggleBrandMobile()">Contact</a></div>
+ <header class="brand-hero" id="home"><div class="brand-hero-bg"></div><div class="brand-hero-inner"><div class="brand-badge">☕ Korean-style coffee house · Da Nang</div><h1>Reply <span>1988</span></h1><p>A warm little café inspired by nostalgia, coffee and slow moments. Scan your table QR, explore the menu, and order without leaving your seat.</p><div class="hero-actions"><button class="hero-btn primary" onclick="brandScroll('menu')">Explore menu</button><button class="hero-btn outline" onclick="openCart()">Order at your table · ${count()}</button><button class="hero-btn outline" onclick="openOrderCabinet()">Track my order</button></div><div class="hero-open"><span class="dot"></span><span>Open daily · 07:30–00:00 · Table ${S.table}</span></div></div></header>
+ <section class="brand-section" id="about"><div class="brand-wrap about-brand brand-reveal"><div class="about-brand-img"><img loading="lazy" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1000&q=80" alt="Cafe interior"></div><div class="about-brand-text"><div class="section-head-brand" style="text-align:left;margin-bottom:20px"><div class="sub">Our café</div><h2>A quiet corner in the city.</h2></div><p>Reply 1988 is more than a menu. It is a warm visual experience built around coffee, matcha, tea, desserts and a calm place to stay for a while.</p><p>For guests, the QR menu keeps ordering simple. For the café, every order becomes an operational signal: what sells, when it sells and how the team responds.</p><div class="brand-feats"><div class="brand-feat"><i>☕</i><b>Specialty coffee</b></div><div class="brand-feat"><i>🍵</i><b>Matcha & tea</b></div><div class="brand-feat"><i>📸</i><b>Photogenic space</b></div><div class="brand-feat"><i>📱</i><b>QR table ordering</b></div></div></div></div></section>
+ <section class="brand-section brand-menu-section" id="menu"><div class="brand-wrap"><div class="section-head-brand brand-reveal"><div class="sub">Our menu</div><h2>Take your time.</h2><p>Explore the current café menu. Open any item for temperature options, toppings and the table-side order flow.</p></div><div class="brand-tabs brand-reveal">${cats.map(c=>`<button class="brand-tab ${S.cat===c?'on':''}" onclick="S.cat='${c}';S.q='';render();setTimeout(()=>brandScroll('menu'),30)">${c}</button>`).join('')}</div>${S.cat!=='All'?`<div style="text-align:center;margin:-18px 0 26px"><input class="search" style="min-width:300px" placeholder="Search this category..." value="${S.q}" oninput="S.q=this.value;render()"></div>`:''}<div class="brand-menu-grid brand-reveal">${(S.cat==='All'?pop:list).slice(0,S.cat==='All'?6:999).map((p,i)=>brandMenuCard(p,i)).join('')}</div>${S.cat==='All'?`<div style="text-align:center;margin-top:28px"><button class="hero-btn primary" onclick="S.cat='Italian Coffee';render();setTimeout(()=>brandScroll('menu'),30)">Open full menu</button></div>`:''}</div></section>
+ <section class="brand-section" id="gallery"><div class="brand-wrap"><div class="section-head-brand brand-reveal"><div class="sub">Our space</div><h2>Small details, warm atmosphere.</h2><p>A visual direction built around the café mood, photography, clean typography and a little nostalgia.</p></div><div class="brand-gallery brand-reveal">${BRAND_GALLERY.map(g=>`<div class="brand-gallery-item" onclick="openBrandLightbox('https://images.unsplash.com/${g}?auto=format&fit=crop&w=1600&q=85','Reply 1988 Cafe')"><img loading="lazy" src="https://images.unsplash.com/${g}?auto=format&fit=crop&w=1000&q=80" alt="Reply 1988 atmosphere"></div>`).join('')}</div></div></section>
+ <section class="brand-section brand-review-section" id="reviews"><div class="brand-wrap"><div class="section-head-brand brand-reveal"><div class="sub">Guest notes</div><h2>What visitors remember.</h2><p>Based on the guest feedback you provided for the pilot café.</p></div><div class="brand-review-grid brand-reveal">${BRAND_REVIEWS.map(r=>`<article class="brand-review-card"><div class="brand-stars">★★★★★</div><p>“${r.text}”</p><div class="brand-review-user"><div class="brand-review-avatar">${r.a}</div><div><b>${r.name}</b><small>${r.source}</small></div></div></article>`).join('')}</div></div></section>
+
+ <section class="brand-section order-cabinet-section" id="order-cabinet"><div class="brand-wrap brand-reveal"><div class="section-head-brand"><div class="sub">Your order</div><h2>Order cabinet.</h2><p>Track the latest order for this table, review the receipt and quickly reorder your favorites.</p></div><div class="order-cabinet-shell">${orderCabinetMain()}<aside class="order-cabinet-side">${orderCabinetSide()}</aside></div></div></section>
+ <section class="brand-section brand-qr" id="qr"><div class="brand-wrap brand-reveal"><div class="section-head-brand" style="margin-bottom:26px"><div class="sub" style="color:var(--gold)">QR table ordering</div><h2 style="color:#fff">Scan. Browse. Order.</h2><p style="color:rgba(255,255,255,.68)">Every table can have its own QR link. The current demo is opened for table ${S.table}.</p></div><div class="brand-qr-layout"><div class="brand-qr-box"><img src="${qrImageUrl(S.table)}" alt="QR for table ${S.table}"></div><div class="brand-qr-copy"><strong>Table ${S.table}</strong><p>In production, this QR route identifies the table automatically and sends the order to the café staff dashboard.</p><button class="hero-btn primary" onclick="copyText(qrUrlForTable('${S.table}'))">Copy table QR link</button></div></div></div></section>
+ <section class="brand-section" id="contact"><div class="brand-wrap brand-contact brand-reveal"><div><div class="section-head-brand" style="text-align:left;margin-bottom:30px"><div class="sub">Visit us</div><h2>Come by for a coffee.</h2></div><div class="contact-item"><div class="contact-icon">📍</div><div><h4>Address</h4><p>${CAFE.address}</p></div></div><div class="contact-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><p><a href="tel:+84935273277">+84 935 273 277</a></p></div></div><div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Opening hours</h4><p>${CAFE.hours}</p></div></div><div class="contact-item"><div class="contact-icon">💬</div><div><h4>Facebook</h4><p><a href="${CAFE.facebook}" target="_blank" rel="noopener">facebook.com/Reply1988Cafe</a></p></div></div></div><div class="brand-map"><iframe loading="lazy" src="https://maps.google.com/maps?q=20%20L%C3%AA%20H%E1%BB%93ng%20Phong%2C%20Da%20Nang&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe></div></div></section>
+ <footer class="brand-footer">© 2026 <b>Reply 1988 Cafe</b> · Da Nang · QR ordering showcase</footer></div>`;
+}
+function shell(){
+ if(S.view==='guest'){
+  document.getElementById('app').innerHTML=`<nav class="brand-nav" id="brandNav"><a class="brand-logo" href="#home">Reply <span>1988</span></a><ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Space</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#order-cabinet">My Order</a></li><li><a href="#contact">Contact</a></li></ul><div class="nav-right"><div class="langs"><button class="lang-switch ${S.lang==='vi'?'on':''}" onclick="S.lang='vi';render()">VI</button><button class="lang-switch ${S.lang==='en'?'on':''}" onclick="S.lang='en';render()">EN</button><button class="lang-switch ${S.lang==='ru'?'on':''}" onclick="S.lang='ru';render()">RU</button></div><button class="demo-mode" onclick="S.view='staff';render()">Staff</button><button class="demo-mode" onclick="S.view='admin';render()">Admin</button><button class="mobile-menu" onclick="toggleBrandMobile()">☰</button><button class="cart-btn" onclick="openCart()">🛒<span class="cart-count">${count()}</span></button></div></nav>${guest()}`;
+  requestAnimationFrame(()=>{const nav=document.getElementById('brandNav');if(nav){const fn=()=>nav.classList.toggle('scrolled',window.scrollY>40);fn();window.removeEventListener('scroll',window.__brandNavScroll||(()=>{}));window.__brandNavScroll=fn;window.addEventListener('scroll',fn,{passive:true})}document.querySelectorAll('.brand-reveal').forEach(el=>window.__brandRevealObserver?.observe(el))});return;
+ }
+ document.getElementById('app').innerHTML=`<header class="top"><div class="topin"><div class="brand"><div class="logo">88</div>Reply 1988</div><div style="display:flex;gap:8px;align-items:center"><div class="switch"><button class="${S.view==='staff'?'active':''}" onclick="S.view='staff';render()">Staff</button><button class="${S.view==='admin'?'active':''}" onclick="S.view='admin';render()">Admin</button><button onclick="S.view='guest';render()">Guest</button></div><select class="lang" onchange="S.lang=this.value;render()"><option value="en" ${S.lang==='en'?'selected':''}>EN</option><option value="vi" ${S.lang==='vi'?'selected':''}>VI</option><option value="ru" ${S.lang==='ru'?'selected':''}>RU</option></select></div></div></header>${S.view==='staff'?staff():admin()}`;
+}
+window.__brandRevealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});
+window.runReply1988SelfTest=async function(){const results=[];const check=(name,fn)=>{try{const v=fn();results.push({name,ok:!!v,detail:v});}catch(e){results.push({name,ok:false,detail:String(e)})}};check('Menu count >= 40',()=>MENU.length>=40);check('Products priced',()=>MENU.every(x=>Number.isFinite(x.price)&&x.price>0));check('Names present',()=>MENU.every(x=>x.en&&x.vi));check('Toppings available',()=>TOPS.length>=5);check('Guest render',()=>{S.view='guest';S.cat='All';render();return !!document.querySelector('.brand-hero')});check('Cart add',()=>{const n=count();add('egg');return count()===n+1});check('Product modal',()=>{openProduct('egg');return !!document.querySelector('#modal .modalCard')});closeModal();check('Staff render',()=>{S.view='staff';render();return !!document.querySelector('.panelHeader')});check('Admin render',()=>{S.view='admin';S.tab='menu';render();return !!document.querySelector('.adminGrid')});check('Menu rows',()=>document.querySelectorAll('.row').length===MENU.length);check('Analytics render',()=>{S.tab='analytics';render();return !!document.querySelector('.analytics')});check('Tables render',()=>{S.tab='tables';render();return document.querySelectorAll('.info').length>=24});check('Cafe info render',()=>{S.tab='info';render();return !!document.querySelector('#ci_name')});S.view='guest';S.cart=[];save();render();return results};
+
+
+function cabinetOrders(){return [...S.orders].filter(o=>String(o.table)===String(S.table)).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));}
+function latestCabinetOrder(){
+  const saved=localStorage.getItem('r88_last_order_id');
+  const sameTable=cabinetOrders();
+  if(saved){const hit=S.orders.find(o=>o.id===saved&&String(o.table)===String(S.table));if(hit)return hit;}
+  return sameTable[0]||null;
+}
+function cabinetStatusIndex(status){return ['New','Preparing','Ready','Paid'].indexOf(status);}
+function cabinetStatusLabel(status){return status==='New'?'Order received':status==='Preparing'?'Preparing':status==='Ready'?'Ready for you':'Paid & completed';}
+function orderCabinetMain(){
+  const o=latestCabinetOrder();
+  if(!o){
+    return `<div class="order-cabinet-main oc-empty"><div class="oc-empty-inner"><div class="oc-empty-icon">☕</div><h3>Your table is ready.</h3><p>No order has been placed from table ${S.table} yet. Explore the menu, choose your drinks and follow everything here after you order.</p><div class="oc-actions" style="justify-content:center"><button class="oc-btn primary" onclick="brandScroll('menu')">Explore menu</button><button class="oc-btn soft" onclick="openCart()">Open cart · ${count()}</button></div></div></div>`;
+  }
+  const steps=['New','Preparing','Ready','Paid'];
+  const cur=Math.max(0,cabinetStatusIndex(o.status));
+  const items=o.items||[];
+  const change=o.cash?Math.max(0,o.cash-o.total):0;
+  return `<div class="order-cabinet-main">
+    <div class="oc-kicker">Latest order · Table ${o.table}</div>
+    <div class="oc-title-row"><div><h3 class="oc-title">${o.id}</h3><div class="oc-sub">${o.name||'Guest'} · ${new Date(o.createdAt||Date.now()).toLocaleString()}</div></div><div class="oc-pill"><span class="oc-dot"></span>${cabinetStatusLabel(o.status)}</div></div>
+    <div class="oc-progress">${steps.map((s,i)=>`<div class="oc-step ${i<cur?'done ':''}${i===cur?'active':''}"><span>${s}</span></div>`).join('')}</div>
+    <div class="oc-detail-grid"><div class="oc-detail-box"><small>Table</small><strong>${o.table}</strong></div><div class="oc-detail-box"><small>Total</small><strong>${full(o.total)}</strong></div><div class="oc-detail-box"><small>Payment</small><strong>${o.payment==='cash'?'Cash':'Pay at counter'}</strong></div><div class="oc-detail-box"><small>${o.cash?'Change':'Status'}</small><strong>${o.cash?full(change):cabinetStatusLabel(o.status)}</strong></div></div>
+    <div class="oc-items">${items.map(x=>`<div class="oc-item"><span>${x.qty} × ${product(x.id)?.en||x.id}${x.temp?' · '+x.temp:''}</span><span>${full((x.price||0)*x.qty)}</span></div>`).join('')}</div>
+    ${o.comment?`<div class="oc-status-note"><strong>Note:</strong> ${o.comment}</div>`:''}
+    <div class="oc-actions"><button class="oc-btn primary" onclick="showOrder('${o.id}')">View full order</button><button class="oc-btn" onclick="brandScroll('menu')">Add more items</button><button class="oc-btn soft" onclick="reorderOrder('${o.id}')">Order again</button><button class="oc-btn" onclick="copyText('${o.id}')">Copy order number</button></div>
+  </div>`;
+}
+function orderCabinetSide(){
+  const orders=cabinetOrders();
+  const totalSpent=orders.reduce((a,o)=>a+(o.total||0),0);
+  return `<div class="oc-summary"><div class="oc-summary-card"><strong>${orders.length}</strong><span>Orders from table ${S.table}</span></div><div class="oc-summary-card"><strong>${full(totalSpent)}</strong><span>Total order value</span></div><div class="oc-summary-card"><strong>${orders.filter(o=>o.status==='Paid').length}</strong><span>Completed orders</span></div></div>
+  <div style="height:18px"></div><div class="oc-history-head"><h3>Order history</h3><span class="oc-history-count">${orders.length} total</span></div>
+  <div class="oc-history">${orders.length?orders.map(o=>`<div class="oc-history-row"><div><strong>${o.id} · ${full(o.total)}</strong><small>${new Date(o.createdAt||Date.now()).toLocaleString()} · ${o.status}</small></div><div class="oc-history-actions"><button class="oc-mini-btn" onclick="showOrder('${o.id}')">View</button><button class="oc-mini-btn" onclick="reorderOrder('${o.id}')">↻</button></div></div>`).join(''):`<div class="oc-history-row"><div><strong>No previous orders</strong><small>They will appear here after the first order.</small></div></div>`}</div>
+  <div class="oc-status-note">This cabinet is attached to the current table QR. In production, the customer session can also be linked to a secure order token or loyalty account.</div>`;
+}
+function reorderOrder(id){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;
+  let added=0;
+  (o.items||[]).forEach(x=>{const p=product(x.id);if(!p)return;const key=x.id+'|'+(x.temp||'')+'|';const found=S.cart.find(i=>i.key===key);if(found)found.qty+=x.qty;else S.cart.push({key,id:x.id,price:x.price||p.price,qty:x.qty,temp:x.temp||'',top:''});added+=x.qty;});
+  save();render();toast(`${added} item${added===1?'':'s'} added to cart`);setTimeout(()=>openCart(),120);
+}
+function openOrderCabinet(){brandScroll('order-cabinet');}
+
+/* ===== ACTIVE ORDER SAFETY MODEL =====
+   One active order per table at a time.
+   Active order survives refresh and role switching until status === 'Paid'.
+*/
+function readActiveOrderMap(){
+  try{return JSON.parse(localStorage.getItem('r88_active_orders')||'{}')||{};}catch(e){return {};}
+}
+function writeActiveOrderMap(map){localStorage.setItem('r88_active_orders',JSON.stringify(map||{}));}
+function getActiveOrderForTable(table){
+  const t=String(table);
+  const map=readActiveOrderMap();
+  const mappedId=map[t];
+  if(mappedId){
+    const mapped=S.orders.find(o=>o.id===mappedId&&String(o.table)===t&&o.status!=='Paid');
+    if(mapped)return mapped;
+    delete map[t];writeActiveOrderMap(map);
+  }
+  const found=[...S.orders].filter(o=>String(o.table)===t&&o.status!=='Paid'&&(o.source==='customer'||o.source==='staff-demo')).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0))[0]||null;
+  if(found){map[t]=found.id;writeActiveOrderMap(map);}
+  return found;
+}
+function setActiveOrderForTable(order){
+  const map=readActiveOrderMap();
+  map[String(order.table)]=order.id;
+  writeActiveOrderMap(map);
+  localStorage.setItem('r88_last_order_id',order.id);
+}
+function clearActiveOrderForTable(table,orderId=''){
+  const map=readActiveOrderMap();
+  const t=String(table);
+  if(!orderId||map[t]===orderId)delete map[t];
+  writeActiveOrderMap(map);
+  if(orderId&&localStorage.getItem('r88_last_order_id')===orderId)localStorage.removeItem('r88_last_order_id');
+}
+function activeOrderLockMessage(o){
+  return `Order ${o.id} is still active. Please wait until it is paid at the café before placing another order.`;
+}
+function latestCabinetOrder(){
+  const active=getActiveOrderForTable(S.table);
+  if(active)return active;
+  const saved=localStorage.getItem('r88_last_order_id');
+  if(saved){const hit=S.orders.find(o=>o.id===saved&&String(o.table)===String(S.table));if(hit)return hit;}
+  return cabinetOrders().find(o=>o.status==='Paid')||null;
+}
+function cabinetStatusIndex(status){return ['New','Preparing','Ready','Paid'].indexOf(status);}
+function cabinetStatusLabel(status){return status==='New'?'Order received':status==='Preparing'?'Preparing':status==='Ready'?'Ready for you':'Paid & completed';}
+
+/* Never create a second order for the same table while the first is unpaid. */
+function placeOrder(){
+  if(!S.cart.length){toast('Your cart is empty');return;}
+  const active=getActiveOrderForTable(S.table);
+  if(active){toast(activeOrderLockMessage(active));closeCart();setTimeout(()=>openOrderCabinet(),120);return;}
+  const pay=document.getElementById('pay')?.value||S.cartDraft.pay||'cash';
+  const cash=Number(document.getElementById('cash')?.value||S.cartDraft.cash||0);
+  if(pay==='cash'&&cash<total()){toast('Enter the cash amount the guest will pay');return;}
+  const o={
+    id:'R88-'+String(Date.now()).slice(-6),
+    table:String(S.table),
+    name:(document.getElementById('cname')?.value||S.cartDraft.name||'').trim(),
+    comment:(document.getElementById('ccomment')?.value||S.cartDraft.comment||'').trim(),
+    payment:pay,
+    cash,
+    total:total(),
+    status:'New',
+    paymentStatus:'pending',
+    source:'customer',
+    items:S.cart.map(x=>({id:x.id,qty:x.qty,temp:x.temp,price:x.price,top:x.top||''})),
+    createdAt:Date.now()
+  };
+  S.orders.unshift(o);
+  S.cart=[];
+  S.cartDraft={name:'',comment:'',pay:'cash',cash:''};
+  setActiveOrderForTable(o);
+  save();
+  if(typeof saveDraft==='function')saveDraft();
+  closeCart();
+  render();
+  toast('Order sent · '+o.id);
+  setTimeout(()=>openOrderCabinet(),180);
+}
+
+/* Prevent menu actions from accidentally starting a second order. */
+function add(id,price=null,meta={},amount=1){
+  const active=getActiveOrderForTable(S.table);
+  if(active){toast(activeOrderLockMessage(active));setTimeout(()=>openOrderCabinet(),120);return;}
+  const p=product(id);if(!p||p.active===false)return;
+  const key=id+'|'+(meta.temp||'')+'|'+(meta.top||'');
+  const found=S.cart.find(x=>x.key===key);
+  if(found)found.qty+=amount;
+  else S.cart.push({key,id,price:price||p.price,qty:amount,temp:meta.temp||'',top:meta.top||''});
+  save();render();toast(amount>1?`${amount} added to order`:'Added to order');
+}
+
+/* Cart becomes a safe entry point to the current order once a checkout exists. */
+function renderCart(){
+  const active=getActiveOrderForTable(S.table);
+  const items=S.cart.map(x=>{
+    const p=product(x.id),top=TOPS.find(t=>t.id===x.top);
+    return `<div class="cartRow"><div><strong>${pname(p)}</strong><div class="muted" style="font-size:12px;margin-top:4px">${x.temp||''}${top?' · '+top.name:''}</div><div class="price" style="margin-top:6px">${full(x.price*x.qty)}</div></div><div class="qty"><button onclick="qty('${x.key}',-1)">−</button><strong>${x.qty}</strong><button onclick="qty('${x.key}',1)">+</button></div></div>`;
+  }).join('');
+  const activeBanner=active?`<div class="oc-status-note" style="margin-bottom:14px"><strong>Active order · ${active.id}</strong><br>${cabinetStatusLabel(active.status)}. One active order is allowed per table until payment is completed.</div>`:'';
+  const checkout=active?'':(S.cart.length?`<div class="form"><div class="total"><span>Total</span><span>${full(total())}</span></div><div class="field"><label>Name (optional)</label><input id="cname" value="${(S.cartDraft.name||'').replace(/"/g,'&quot;')}" oninput="updateDraft('name',this.value)"></div><div class="field"><label>Comment (optional)</label><textarea id="ccomment" oninput="updateDraft('comment',this.value)">${S.cartDraft.comment||''}</textarea></div><div class="field"><label>Payment</label><select id="pay" onchange="updateDraft('pay',this.value);toggleCash()"><option value="cash" ${S.cartDraft.pay==='cash'?'selected':''}>Cash at the café</option><option value="counter" ${S.cartDraft.pay==='counter'?'selected':''}>Pay at counter</option></select></div><div id="cashBox" class="cashBox" style="display:${S.cartDraft.pay==='cash'?'block':'none'}"><div class="field"><label>I pay with</label><input id="cash" type="number" min="${total()}" placeholder="${total()}" value="${S.cartDraft.cash||''}" oninput="updateDraft('cash',this.value);calcChange()"></div><div id="change" class="muted" style="font-weight:800;margin-top:7px">Change: ${S.cartDraft.cash?full(Math.max(0,Number(S.cartDraft.cash)-total())):'—'}</div></div><button class="submit" onclick="placeOrder()">Place order · ${money(total())}</button></div>`:'');
+  $('drawer').innerHTML=`<div class="drawerPanel"><div class="drawerHead"><div><div class="eyebrow muted">TABLE ${S.table}</div><h2>${active?'Current order':'Your order'}</h2></div><button class="close" onclick="closeCart()">×</button></div>${activeBanner}${items||(!active?'<div class="empty">Your cart is empty.</div>':'')} ${active?`<div class="actions"><button class="btn primary" onclick="closeCart();openOrderCabinet()">Open order cabinet</button></div>`:''}${checkout}${!active&&S.cart.length?'<div class="actions"><button class="btn" style="width:100%" onclick="S.cart=[];save();render();openCart()">Clear cart</button></div>':''}</div>`;
+}
+function openCart(){renderCart();$('drawer').classList.add('open');}
+function closeCart(){$('drawer').classList.remove('open');}
+
+/* Reordering is allowed only after payment of the previous order. */
+function reorderOrder(id){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;
+  const active=getActiveOrderForTable(S.table);
+  if(active){toast(activeOrderLockMessage(active));openOrderCabinet();return;}
+  let added=0;
+  (o.items||[]).forEach(x=>{const p=product(x.id);if(!p)return;const key=x.id+'|'+(x.temp||'')+'|'+(x.top||'');const found=S.cart.find(i=>i.key===key);if(found)found.qty+=x.qty;else S.cart.push({key,id:x.id,price:x.price||p.price,qty:x.qty,temp:x.temp||'',top:x.top||''});added+=x.qty;});
+  save();render();toast(`${added} item${added===1?'':'s'} added to cart`);setTimeout(()=>openCart(),120);
+}
+
+/* Status flow is monotonic and completing payment releases the table for the next order. */
+function status(id,s){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;
+  const flow=['New','Preparing','Ready','Paid'];
+  const from=flow.indexOf(o.status),to=flow.indexOf(s);
+  if(to<0||from<0||to<from){toast('Order status cannot move backwards');return;}
+  if(to>from+1){toast('Move the order through the next status first');return;}
+  o.status=s;
+  if(s==='Paid'){o.paymentStatus='paid';clearActiveOrderForTable(o.table,o.id);}
+  save();render();toast(id+' · '+s);
+}
+
+/* Staff demo orders must also respect one active order per table. */
+function simulate(){
+  const occupied=new Set(S.orders.filter(o=>o.status!=='Paid').map(o=>String(o.table)));
+  const available=Array.from({length:24},(_,i)=>String(i+1).padStart(2,'0')).filter(t=>!occupied.has(t));
+  if(!available.length){toast('All tables already have active orders');return;}
+  const table=available[Math.floor(Math.random()*available.length)];
+  const o={id:'R88-'+String(Date.now()).slice(-6),table,name:'Demo Guest',comment:'Less ice',payment:'cash',cash:100000,total:45000,status:'New',paymentStatus:'pending',source:'staff-demo',items:[{id:'egg',qty:1,price:45000}],createdAt:Date.now()};
+  S.orders.unshift(o);setActiveOrderForTable(o);save();render();toast(`New order · Table ${table}`);
+}
+
+/* The cabinet always prioritizes the one active order. Once paid, history remains available. */
+function orderCabinetMain(){
+  const o=latestCabinetOrder();
+  if(!o){return `<div class="order-cabinet-main oc-empty"><div class="oc-empty-inner"><div class="oc-empty-icon">☕</div><h3>Your table is ready.</h3><p>No order has been placed from table ${S.table} yet. Explore the menu, choose your drinks and follow everything here after you order.</p><div class="oc-actions" style="justify-content:center"><button class="oc-btn primary" onclick="brandScroll('menu')">Explore menu</button><button class="oc-btn soft" onclick="openCart()">Open cart · ${count()}</button></div></div></div>`;}
+  const active=getActiveOrderForTable(S.table);
+  const steps=['New','Preparing','Ready','Paid'];
+  const cur=Math.max(0,cabinetStatusIndex(o.status));
+  const items=o.items||[];const change=o.cash?Math.max(0,o.cash-o.total):0;
+  const isActive=!!active&&active.id===o.id;
+  return `<div class="order-cabinet-main"><div class="oc-kicker">${isActive?'Active order':'Latest completed order'} · Table ${o.table}</div><div class="oc-title-row"><div><h3 class="oc-title">${o.id}</h3><div class="oc-sub">${o.name||'Guest'} · ${new Date(o.createdAt||Date.now()).toLocaleString()}</div></div><div class="oc-pill"><span class="oc-dot"></span>${cabinetStatusLabel(o.status)}</div></div><div class="oc-progress">${steps.map((s,i)=>`<div class="oc-step ${i<cur?'done ':''}${i===cur?'active':''} "><span>${s}</span></div>`).join('')}</div><div class="oc-detail-grid"><div class="oc-detail-box"><small>Table</small><strong>${o.table}</strong></div><div class="oc-detail-box"><small>Total</small><strong>${full(o.total)}</strong></div><div class="oc-detail-box"><small>Payment</small><strong>${o.payment==='cash'?'Cash at café':'Pay at counter'}</strong></div><div class="oc-detail-box"><small>${o.cash?'Change':'Status'}</small><strong>${o.cash?full(change):cabinetStatusLabel(o.status)}</strong></div></div><div class="oc-items">${items.map(x=>`<div class="oc-item"><span>${x.qty} × ${product(x.id)?.en||x.id}${x.temp?' · '+x.temp:''}</span><span>${full((x.price||0)*x.qty)}</span></div>`).join('')}</div>${o.comment?`<div class="oc-status-note"><strong>Note:</strong> ${o.comment}</div>`:''}<div class="oc-actions"><button class="oc-btn primary" onclick="showOrder('${o.id}')">View full order</button>${isActive?`<button class="oc-btn soft" onclick="openCart()">Current order · ${o.status}</button>`:`<button class="oc-btn soft" onclick="reorderOrder('${o.id}')">Order again</button>`}<button class="oc-btn" onclick="copyText('${o.id}')">Copy order number</button></div>${isActive?`<div class="oc-status-note"><strong>One active order at a time.</strong> This order stays active until the café marks it as paid. Only after payment can a new order be placed.</div>`:''}</div>`;
+}
+
+/* Move the history block below the active order instead of keeping it as a sticky side panel. */
+function orderCabinetSide(){
+  const orders=cabinetOrders();
+  const totalSpent=orders.reduce((a,o)=>a+(o.total||0),0);
+  return `<div class="oc-summary"><div class="oc-summary-card"><strong>${orders.length}</strong><span>Orders from table ${S.table}</span></div><div class="oc-summary-card"><strong>${full(totalSpent)}</strong><span>Total order value</span></div><div class="oc-summary-card"><strong>${orders.filter(o=>o.status==='Paid').length}</strong><span>Completed orders</span></div></div><div style="height:18px"></div><div class="oc-history-head"><h3>Order history</h3><span class="oc-history-count">${orders.length} total</span></div><div class="oc-history">${orders.length?orders.map(o=>`<div class="oc-history-row"><div><strong>${o.id} · ${full(o.total)}</strong><small>${new Date(o.createdAt||Date.now()).toLocaleString()} · ${o.status}</small></div><div class="oc-history-actions"><button class="oc-mini-btn" onclick="showOrder('${o.id}')">View</button>${o.status==='Paid'?`<button class="oc-mini-btn" onclick="reorderOrder('${o.id}')">↻</button>`:''}</div></div>`).join(''):`<div class="oc-history-row"><div><strong>No previous orders</strong><small>They will appear here after the first order.</small></div></div>`}</div><div class="oc-status-note">The active order is retained until payment. Completed orders remain in history.</div>`;
+}
+
+/* Reset demo also clears the active-order lock map. */
+function resetDemo(){
+  if(!confirm('Reset demo orders, menu edits and settings?'))return;
+  ['r88_orders','r88_menu','r88_cafe','r88_staff','r88_cart','r88_cartDraft','r88_active_orders','r88_last_order_id'].forEach(k=>localStorage.removeItem(k));
+  location.reload();
+}
+
+/* Compact QA helper for the current order model. */
+window.runOrderStressTest=function(){
+  const originalOrders=S.orders, originalTable=S.table, originalCart=S.cart, originalMap=localStorage.getItem('r88_active_orders');
+  const results=[];const check=(name,fn)=>{try{const ok=!!fn();results.push({name,ok});}catch(e){results.push({name,ok:false,error:String(e)});}};
+  S.orders=[];S.cart=[];S.table='99';localStorage.removeItem('r88_active_orders');
+  check('No active order initially',()=>!getActiveOrderForTable('99'));
+  const o1={id:'TEST-1',table:'99',status:'New',total:10000,items:[],createdAt:1};S.orders=[o1];setActiveOrderForTable(o1);
+  check('Active order persists by table',()=>getActiveOrderForTable('99')?.id==='TEST-1');
+  check('Second active order is blocked',()=>{const active=getActiveOrderForTable('99');return !!active&&active.id==='TEST-1'});
+  check('Refresh-style lookup keeps order',()=>{const hit=getActiveOrderForTable('99');return !!hit&&hit.status==='New'});
+  o1.status='Preparing';check('Preparing remains active',()=>getActiveOrderForTable('99')?.id==='TEST-1');
+  o1.status='Ready';check('Ready remains active',()=>getActiveOrderForTable('99')?.id==='TEST-1');
+  o1.status='Paid';clearActiveOrderForTable('99','TEST-1');check('Paid releases table',()=>!getActiveOrderForTable('99'));
+  const o2={id:'TEST-2',table:'99',status:'New',total:20000,items:[],createdAt:2};S.orders=[o1,o2];setActiveOrderForTable(o2);check('New order can start only after payment',()=>getActiveOrderForTable('99')?.id==='TEST-2');
+  S.orders=originalOrders;S.table=originalTable;S.cart=originalCart;if(originalMap===null)localStorage.removeItem('r88_active_orders');else localStorage.setItem('r88_active_orders',originalMap);return results;
+};
+
+render();
+</script>
+</body>
+</html>
