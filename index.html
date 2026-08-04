@@ -332,6 +332,45 @@ body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--cream);color
 .order-cabinet-shell{grid-template-columns:1fr!important}
 .order-cabinet-side{position:static!important;margin-top:0}
 @media(max-width:920px){.order-cabinet-shell{grid-template-columns:1fr!important}}
+
+/* ===== ORDER BLOCK UX IMPROVEMENTS ===== */
+/* Drawer close button - prevent overlap */
+.drawerPanel .close{position:relative;z-index:10;flex-shrink:0}
+.drawerPanel .drawerHead{position:sticky;top:0;background:var(--paper);padding-bottom:12px;z-index:5}
+/* Click outside to close drawer */
+.drawer.open{cursor:pointer}
+.drawerPanel{cursor:auto}
+/* Mobile role switcher improvements */
+@media(max-width:650px){
+  .topin{gap:8px;padding:8px 13px}
+  .switch{display:none}
+  .role-toggle-btn{display:flex!important}
+  .lang{padding:6px 8px;font-size:12px}
+}
+.role-toggle-btn{display:none;width:42px;height:42px;border:1px solid var(--line);background:var(--paper);border-radius:50%;align-items:center;justify-content:center;font-size:18px;color:var(--brown)}
+.role-dropdown{position:absolute;top:60px;right:13px;z-index:100;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 40px rgba(40,26,18,.15);padding:8px;display:none;min-width:140px}
+.role-dropdown.show{display:block}
+.role-dropdown button{width:100%;text-align:left;padding:10px 14px;border:0;background:transparent;border-radius:10px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer}
+.role-dropdown button:hover{background:var(--cream)}
+.role-dropdown button.active{background:var(--brown);color:#fff}
+/* Cart UX improvements */
+.drawerPanel .cart-actions-sticky{position:sticky;bottom:0;background:var(--paper);padding-top:15px;border-top:1px solid var(--line);margin:0 -22px -22px;padding:15px 22px}
+.cart-item-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.cart-item-info strong{display:block;font-size:14px}
+.cart-item-meta{font-size:11px;color:var(--muted);margin-top:3px}
+.cart-item-price{font-weight:700;color:var(--brown);font-size:13px;margin-top:4px}
+.cart-qty-control{display:flex;align-items:center;gap:8px}
+.cart-qty-control button{width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:50%;font-size:16px;display:grid;place-items:center}
+.cart-qty-control button:active{transform:scale(.95)}
+.cart-qty-val{min-width:24px;text-align:center;font-weight:700;font-size:14px}
+/* Add more items CTA */
+.add-more-cta{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:rgba(177,111,78,.08);border:1px dashed var(--accent);border-radius:14px;color:var(--accent);font-weight:700;font-size:13px;cursor:pointer;margin-top:12px;transition:.2s}
+.add-more-cta:hover{background:rgba(177,111,78,.15)}
+/* Order success state in cart */
+.cart-success{padding:30px;text-align:center}
+.cart-success-icon{font-size:48px;margin-bottom:12px}
+.cart-success h3{font:700 22px 'Playfair Display',Georgia,serif;color:var(--dark);margin:0 0 8px}
+.cart-success p{color:var(--mut);font-size:13px;line-height:1.6;margin:0 0 18px}
 </style>
 </head>
 <body>
@@ -369,16 +408,43 @@ function add(id,price=null,meta={}){const p=product(id);const key=id+'|'+(meta.t
 function qty(key,d){const x=S.cart.find(i=>i.key===key);if(!x)return;x.qty+=d;if(x.qty<=0)S.cart=S.cart.filter(i=>i.key!==key);save();render();openCart()}
 function openCart(){renderCart();$('drawer').classList.add('open')}
 function closeCart(){$('drawer').classList.remove('open')}
+// Click outside drawer to close
+$('drawer')?.addEventListener('click',function(e){if(e.target===$('drawer'))closeCart()});
 function closeModal(){$('modal').classList.remove('open')}
 function openProduct(id){const p=product(id);let temp=p.temps?.[0]||'',top='';$('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><h2>${pname(p)}</h2><button class="close" onclick="closeModal()">×</button></div><div class="detail"><div class="detailImg">${p.vi}<br><small style="font:12px Inter">Photo placeholder</small></div><div><div class="eyebrow muted">${p.cat}</div><div style="font-size:26px;font-weight:800;color:var(--brown);margin:9px 0">${full(p.price)}</div><p class="muted" style="line-height:1.6">${p.desc}</p>${p.temps?`<div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Temperature</div><div class="options">${p.temps.map((x,i)=>`<button class="option ${i===0?'active':''}" data-v="${x}" onclick="pickOpt(this,'temp')">${x}</button>`).join('')}</div></div>`:''}<div style="margin-top:18px"><div class="muted" style="font-size:12px;margin-bottom:7px">Extra topping</div><div class="options"><button class="option active" data-v="" onclick="pickOpt(this,'top')">None</button>${TOPS.slice(0,5).map(x=>`<button class="option" data-v="${x.id}" onclick="pickOpt(this,'top')">${x.name} +${money(x.price)}</button>`).join('')}</div></div><button class="submit" style="margin-top:22px" onclick="addModal('${id}')">Add to order</button></div></div></div>`;$('modal').classList.add('open');window.choice={temp,top}}
 function pickOpt(btn,type){btn.parentElement.querySelectorAll('.option').forEach(b=>b.classList.remove('active'));btn.classList.add('active');window.choice[type]=btn.dataset.v}
 function addModal(id){const t=TOPS.find(x=>x.id===window.choice.top);add(id,product(id).price+(t?.price||0),{temp:window.choice.temp,top:t?.id||''});closeModal();openCart()}
-function renderCart(){const items=S.cart.map(x=>{const p=product(x.id);const top=TOPS.find(t=>t.id===x.top);return `<div class="cartRow"><div><strong>${pname(p)}</strong><div class="muted" style="font-size:12px;margin-top:4px">${x.temp||''}${top?' · '+top.name:''}</div><div class="price" style="margin-top:6px">${full(x.price*x.qty)}</div></div><div class="qty"><button onclick="qty('${x.key}',-1)">−</button><strong>${x.qty}</strong><button onclick="qty('${x.key}',1)">+</button></div></div>`}).join('');$('drawer').innerHTML=`<div class="drawerPanel"><div class="drawerHead"><h2>Your order</h2><button class="close" onclick="closeCart()">×</button></div>${items||'<div class="empty">Your cart is empty.</div>'}${S.cart.length?`<div class="form"><div class="total"><span>Total</span><span>${full(total())}</span></div><div class="field"><label>Name (optional)</label><input id="cname"></div><div class="field"><label>Comment (optional)</label><textarea id="ccomment"></textarea></div><div class="field"><label>Payment</label><select id="pay" onchange="toggleCash()"><option value="cash">Cash</option><option value="counter">Pay at counter</option></select></div><div id="cashBox" class="cashBox"><div class="field"><label>I pay with</label><input id="cash" type="number" placeholder="500000" oninput="calcChange()"></div><div id="change" class="muted" style="font-weight:800;margin-top:7px">Change: —</div></div><button class="submit" onclick="placeOrder()">Place order · ${money(total())}</button></div>`:''}</div>`}
+function renderCart(){
+  const hasActiveOrder = getActiveOrderForTable(S.table);
+  if(hasActiveOrder){
+    $('drawer').innerHTML=`<div class="drawerPanel"><div class="drawerHead"><h2>Active order</h2><button class="close" onclick="closeCart()">×</button></div><div class="cart-success"><div class="cart-success-icon">☕</div><h3>Order in progress</h3><p>Table ${S.table} already has an active order (${hasActiveOrder.id}). Please wait until it is completed before placing a new order.</p><button class="oc-btn primary" onclick="openOrderCabinet();closeCart()">View order status</button><button class="add-more-cta" style="margin-top:18px" onclick="brandScroll(\'menu\');closeCart()">Browse menu for next time</button></div></div>`;
+    $('drawer').classList.add('open');
+    return;
+  }
+  const items=S.cart.map(x=>{const p=product(x.id);const top=TOPS.find(t=>t.id===x.top);return `<div class="cart-item-row"><div class="cart-item-info"><strong>${pname(p)}</strong><div class="cart-item-meta">${x.temp||''}${top?' · '+top.name:''}</div><div class="cart-item-price">${full(x.price*x.qty)}</div></div><div class="cart-qty-control"><button onclick="qty('${x.key}',-1)">−</button><span class="cart-qty-val">${x.qty}</span><button onclick="qty('${x.key}',1)">+</button></div></div>`}).join('');
+  const totalVal=total();
+  $('drawer').innerHTML=`<div class="drawerPanel"><div class="drawerHead"><h2>Your order</h2><button class="close" onclick="closeCart()">×</button></div>${items||'<div class="empty" style="padding:40px;text-align:center;color:var(--muted)">Your cart is empty.<br><button class="add-more-cta" style="margin-top:16px" onclick="brandScroll(\'menu\')">Browse menu</button></div>'}${S.cart.length?`<div class="cart-actions-sticky"><div class="form"><div class="total" style="margin-bottom:12px"><span>Total</span><span>${full(totalVal)}</span></div><div class="field"><label>Name (optional)</label><input id="cname" value="${S.cartDraft.name||''}" oninput="S.cartDraft.name=this.value;saveDraft()"></div><div class="field"><label>Comment (optional)</label><textarea id="ccomment" oninput="S.cartDraft.comment=this.value;saveDraft()">${S.cartDraft.comment||''}</textarea></div><div class="field"><label>Payment</label><select id="pay" onchange="toggleCash();S.cartDraft.pay=this.value;saveDraft()"><option value="cash" ${S.cartDraft.pay!=='counter'?'selected':''}>Cash</option><option value="counter" ${S.cartDraft.pay==='counter'?'selected':''}>Pay at counter</option></select></div><div id="cashBox" class="cashBox" style="display:${S.cartDraft.pay==='cash'?'block':'none'}"><div class="field"><label>I pay with</label><input id="cash" type="number" placeholder="500000" value="${S.cartDraft.cash||''}" oninput="S.cartDraft.cash=this.value;saveDraft();calcChange()"></div><div id="change" class="muted" style="font-weight:800;margin-top:7px">Change: —</div></div><button class="submit" onclick="placeOrder()">Place order · ${money(totalVal)}</button></div><button class="add-more-cta" onclick="brandScroll(\'menu\');closeCart()">+ Add more items</button></div>`:''}</div>`;
+  $('drawer').classList.add('open');
+}
 function toggleCash(){const v=$('pay')?.value;if($('cashBox'))$('cashBox').style.display=v==='cash'?'block':'none'}
 function calcChange(){const v=Number($('cash')?.value||0);$('change').textContent='Change: '+(v?full(Math.max(0,v-total())):'—')}
-function placeOrder(){const pay=$('pay').value,cash=Number($('cash')?.value||0);if(pay==='cash'&&cash>0&&cash<total()){toast('Cash amount is below total');return}const o={id:'R88-'+String(Date.now()).slice(-6),table:S.table,name:($('cname').value||'').trim(),comment:($('ccomment').value||'').trim(),payment:pay,cash,total:total(),status:'New',items:S.cart.map(x=>({id:x.id,qty:x.qty,temp:x.temp,price:x.price})),createdAt:Date.now()};S.orders.unshift(o);S.cart=[];save();closeCart();render();toast('Order sent · '+o.id);setTimeout(()=>showOrder(o.id),250)}
+function placeOrder(){
+  const pay=$('pay').value,cash=Number($('cash')?.value||0);
+  if(pay==='cash'&&cash>0&&cash<total()){toast('Cash amount is below total');return}
+  const o={id:'R88-'+String(Date.now()).slice(-6),table:S.table,name:($('cname').value||'').trim(),comment:($('ccomment').value||'').trim(),payment:pay,cash,total:total(),status:'New',paymentStatus:'pending',items:S.cart.map(x=>({id:x.id,qty:x.qty,temp:x.temp,price:x.price})),createdAt:Date.now()};
+  S.orders.unshift(o);
+  setActiveOrderForTable(o);
+  S.cart=[];save();closeCart();render();
+  toast('Order sent · '+o.id);
+  setTimeout(()=>showOrder(o.id),250)
+}
 function showOrder(id){const o=S.orders.find(x=>x.id===id);if(!o)return;$('modal').innerHTML=`<div class="modalCard"><div class="drawerHead"><h2>Order ${o.id}</h2><button class="close" onclick="closeModal()">×</button></div><div class="muted">Table ${o.table}${o.name?' · '+o.name:''}</div><div style="margin-top:18px;display:grid;gap:9px">${['New','Preparing','Ready','Paid'].map((s,i)=>{const cur=['New','Preparing','Ready','Paid'].indexOf(o.status);return `<div style="padding:13px;border-radius:15px;background:${i<=cur?'#ebe0d4':'#f7f3ee'}"><strong>${i<=cur?'●':'○'} ${s}</strong></div>`}).join('')}</div><div class="info" style="margin-top:15px"><strong>${full(o.total)}</strong><span>${o.payment==='cash'?'Cash':'Pay at counter'}${o.cash?` · Change ${full(Math.max(0,o.cash-o.total))}`:''}</span></div></div>`;$('modal').classList.add('open')}
-function status(id,s){const o=S.orders.find(x=>x.id===id);if(!o)return;o.status=s;save();render();toast(id+' · '+s)}
+function status(id,s){
+  const o=S.orders.find(x=>x.id===id);if(!o)return;
+  o.status=s;
+  if(s==='Paid'){o.paymentStatus='paid';clearActiveOrderForTable(o.table,o.id);}
+  save();render();toast(id+' · '+s)
+}
 function card(p){return `<article class="card" onclick="openProduct('${p.id}')"><div class="pic">${p.vi}<br><small style="font:11px Inter">Photo placeholder</small>${p.hot?'<span class="badge">Best seller</span>':''}</div><div class="body"><div class="title">${pname(p)}</div><div class="desc">${p.desc}</div><div class="foot"><span class="price">${full(p.price)}</span><button class="plus" onclick="event.stopPropagation();add('${p.id}')">+</button></div></div></article>`}
 function guest(){const pop=MENU.filter(x=>x.hot).slice(0,6);const list=MENU.filter(p=>(S.cat==='All'||p.cat===S.cat)&&(!S.q||p.en.toLowerCase().includes(S.q.toLowerCase())||p.vi.toLowerCase().includes(S.q.toLowerCase())));return `<div class="wrap"><div class="hero"><section class="heroMain"><div class="heroCopy"><div class="eyebrow">Da Nang · Café · Table ${S.table}</div><h1>Reply 1988</h1><p>A warm little café for coffee, matcha, tea and slow moments. Scan, order at your table, and enjoy your time.</p><div class="actions"><button class="btn" onclick="document.getElementById('menu').scrollIntoView()">View menu</button><button class="btn" style="background:rgba(40,28,21,.7);color:#fff;border-color:transparent" onclick="openCart()">Your order · ${count()}</button></div></div></section><aside class="heroSide"><div><div class="eyebrow muted">REPLY 1988 CAFE</div><h2>A quiet corner in the city.</h2><p class="muted">20 Lê Hồng Phong, Hải Châu, Đà Nẵng</p></div><div class="photo">Atmosphere<br>Photo placeholder</div><div class="meta"><div class="metaBox"><small>Hours</small><strong>07:30–00:00</strong></div><div class="metaBox"><small>Your table</small><strong>${S.table}</strong></div></div></aside></div><section class="section"><div class="sectionHead"><div><div class="eyebrow muted">Popular</div><h2>What people come back for.</h2></div><span class="muted">⭐ Best sellers</span></div><div class="grid">${pop.map(card).join('')}</div></section><section class="section" id="menu"><div class="sectionHead"><div><div class="eyebrow muted">Menu</div><h2>Take your time.</h2></div><input class="search" placeholder="Search menu" value="${S.q}" oninput="S.q=this.value;render()"></div><div class="chips">${CAT.map(c=>`<button class="chip ${S.cat===c?'active':''}" onclick="S.cat='${c}';render()">${c}</button>`).join('')}</div><div class="grid">${list.map(card).join('')}</div></section><div class="infoGrid"><div class="info"><strong>About the café</strong><span>A cozy café at 20 Lê Hồng Phong. Minimal, warm and easy to settle into.</span></div><div class="info"><strong>Opening hours</strong><span>Every day · 07:30–00:00</span></div><div class="info"><strong>Order at table ${S.table}</strong><span>Your QR identifies the table automatically.</span></div></div></div><div class="floating ${count()?'show':''}" onclick="openCart()"><span class="count">${count()}</span><strong>Your order</strong><span>${full(total())}</span></div>`}
 function orderCard(o){const next=o.status==='New'?'Preparing':o.status==='Preparing'?'Ready':'Paid';return `<div class="order"><div class="orderTop"><div><strong>${o.id} · Table ${o.table}</strong><div class="muted" style="font-size:12px;margin-top:4px">${o.name||'Guest'} · ${new Date(o.createdAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}</div></div><span class="status">${o.status}</span></div><div class="items">${o.items.map(x=>`${x.qty} × ${product(x.id)?.en||x.id}`).join('<br>')}${o.comment?'<br><strong>Note:</strong> '+o.comment:''}</div><div class="orderTop"><strong>${full(o.total)}</strong><span class="muted" style="font-size:12px">${o.payment==='cash'?'Cash':'Counter'}${o.cash?` · Change ${full(Math.max(0,o.cash-o.total))}`:''}</span></div><div class="orderActions"><button class="primary" onclick="status('${o.id}','${next}')">${next==='Paid'?'Mark paid':next}</button><button onclick="showOrder('${o.id}')">View</button><button onclick="toast('Demo: cancellation flow ready for backend')">Cancel</button></div></div>`}
@@ -391,9 +457,24 @@ function tablesAdmin(){return `<section class="panelCard"><div class="sectionHea
 function staffAdmin(){return `<section class="panelCard"><div class="sectionHead"><div><h2 style="font:500 30px Georgia,serif">Staff & roles</h2><div class="muted">Owner · Manager · Cashier · Barista · Guest</div></div><button class="btn primary" onclick="toast('Invite staff in production')">+ Invite</button></div><table class="table"><thead><tr><th>Person</th><th>Role</th><th>Notifications</th></tr></thead><tbody><tr><td>Mai</td><td>Manager</td><td>In-app · Push · Telegram</td></tr><tr><td>Linh</td><td>Cashier</td><td>Orders · Payments</td></tr><tr><td>An</td><td>Barista</td><td>New · Preparing · Ready</td></tr></tbody></table></section>`}
 function analyticsAdmin(){const revenue=S.orders.reduce((a,o)=>a+o.total,0),avg=S.orders.length?revenue/S.orders.length:0;const counts={};S.orders.forEach(o=>o.items.forEach(i=>counts[i.id]=(counts[i.id]||0)+i.qty));const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,5);return `<section class="panelCard"><div class="stats" style="margin:0"><div class="stat"><small>Orders</small><strong>${S.orders.length}</strong></div><div class="stat"><small>Revenue</small><strong>${money(revenue)}</strong></div><div class="stat"><small>Avg check</small><strong>${money(avg)}</strong></div><div class="stat"><small>Conversion</small><strong>14.8%</strong></div></div><div class="analytics" style="margin-top:16px"><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Sales by hour</h2><div class="bars">${[28,44,35,58,75,66,86,91,64,50,69,78].map((h,i)=>`<div class="bar" style="height:${h}%"><span>${i+8}</span></div>`).join('')}</div></div><div class="panelCard"><h2 style="font:500 27px Georgia,serif;margin:0">Top products</h2><table class="table" style="margin-top:10px"><thead><tr><th>Product</th><th>Qty</th></tr></thead><tbody>${top.map(([id,n])=>`<tr><td>${product(id)?.en||id}</td><td>${n}</td></tr>`).join('')}</tbody></table></div></div><div class="infoGrid"><div class="info"><strong>1,242</strong><span>Menu views</span></div><div class="info"><strong>420</strong><span>Add to cart</span></div><div class="info"><strong>${S.orders.length}</strong><span>Orders</span></div></div></section>`}
 function infoAdmin(){return `<section class="panelCard"><h2 style="font:500 30px Georgia,serif;margin:0">Cafe information</h2><div class="form"><div class="field"><label>Name</label><input value="Reply 1988"></div><div class="field"><label>Address</label><input value="20 Lê Hồng Phong, Hải Châu, Đà Nẵng"></div><div class="field"><label>Hours</label><input value="07:30–00:00 · Every day"></div><div class="field"><label>Google Maps</label><input value="https://maps.google.com/"></div><div class="field"><label>Facebook</label><input value="https://www.facebook.com/Reply1988Cafe"></div><button class="btn primary" onclick="toast('Saved in demo mode')">Save changes</button></div></section>`}
-function simulate(){const o={id:'R88-'+String(Date.now()).slice(-6),table:String(1+Math.floor(Math.random()*24)).padStart(2,'0'),name:'Demo Guest',comment:'Less ice',payment:'cash',cash:100000,total:45000,status:'New',items:[{id:'egg',qty:1}],createdAt:Date.now()};S.orders.unshift(o);save();render();toast('New order received')}
+function simulate(){
+  const occupied=new Set(S.orders.filter(o=>o.status!=='Paid').map(o=>String(o.table)));
+  const available=Array.from({length:24},(_,i)=>String(i+1).padStart(2,'0')).filter(t=>!occupied.has(t));
+  if(!available.length){toast('All tables already have active orders');return;}
+  const table=available[Math.floor(Math.random()*available.length)];
+  const o={id:'R88-'+String(Date.now()).slice(-6),table,name:'Demo Guest',comment:'Less ice',payment:'cash',cash:100000,total:45000,status:'New',paymentStatus:'pending',source:'staff-demo',items:[{id:'egg',qty:1,price:45000}],createdAt:Date.now()};
+  S.orders.unshift(o);
+  setActiveOrderForTable(o);
+  save();render();toast(`New order · Table ${table}`);
+}
 function exportCSV(){const h=['id','table','name','total','payment','status'];const rows=S.orders.map(o=>h.map(k=>JSON.stringify(o[k]??'')).join(','));const blob=new Blob([[h.join(','),...rows].join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='reply1988-orders.csv';a.click();URL.revokeObjectURL(a.href)}
-function shell(){document.getElementById('app').innerHTML=`<header class="top"><div class="topin"><div class="brand"><div class="logo">88</div>Reply 1988</div><div style="display:flex;gap:8px;align-items:center"><div class="switch"><button class="${S.view==='guest'?'active':''}" onclick="S.view='guest';render()">Guest</button><button class="${S.view==='staff'?'active':''}" onclick="S.view='staff';render()">Staff</button><button class="${S.view==='admin'?'active':''}" onclick="S.view='admin';render()">Admin</button></div><select class="lang" onchange="S.lang=this.value;render()"><option value="en" ${S.lang==='en'?'selected':''}>EN</option><option value="vi" ${S.lang==='vi'?'selected':''}>VI</option><option value="ru" ${S.lang==='ru'?'selected':''}>RU</option></select></div></div></header>${S.view==='guest'?guest():S.view==='staff'?staff():admin()}`}
+function shell(){
+  const roleBtnText = S.view==='guest'?'☕':S.view==='staff'?'📋':'⚙️';
+  document.getElementById('app').innerHTML=`<header class="top"><div class="topin"><div class="brand"><div class="logo">88</div>Reply 1988</div><div style="display:flex;gap:8px;align-items:center;position:relative"><button class="role-toggle-btn" onclick="toggleRoleDropdown()">${roleBtnText}</button><div class="switch"><button class="${S.view==='guest'?'active':''}" onclick="S.view='guest';render()">Guest</button><button class="${S.view==='staff'?'active':''}" onclick="S.view='staff';render()">Staff</button><button class="${S.view==='admin'?'active':''}" onclick="S.view='admin';render()">Admin</button></div><select class="lang" onchange="S.lang=this.value;render()"><option value="en" ${S.lang==='en'?'selected':''}>EN</option><option value="vi" ${S.lang==='vi'?'selected':''}>VI</option><option value="ru" ${S.lang==='ru'?'selected':''}>RU</option></select><div id="roleDropdown" class="role-dropdown"><button class="${S.view==='guest'?'active':''}" onclick="S.view='guest';render();toggleRoleDropdown()">☕ Guest</button><button class="${S.view==='staff'?'active':''}" onclick="S.view='staff';render();toggleRoleDropdown()">📋 Staff</button><button class="${S.view==='admin'?'active':''}" onclick="S.view='admin';render();toggleRoleDropdown()">⚙️ Admin</button></div></div></div></header>${S.view==='guest'?guest():S.view==='staff'?staff():admin()}`;
+}
+function toggleRoleDropdown(){$('roleDropdown')?.classList.toggle('show')}
+// Close dropdown when clicking outside
+document.addEventListener('click',function(e){if(!e.target.closest('.role-dropdown')&&!e.target.closest('.role-toggle-btn')){$('roleDropdown')?.classList.remove('show')}});
 function render(){shell()}
 
 /* ===== FUNCTIONAL SHOWCASE ENHANCEMENTS ===== */
